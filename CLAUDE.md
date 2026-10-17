@@ -8,4 +8,4 @@
 - Skill `subagent-driven-development`: Execute multi-task plans continuously with review gates.
 - Skill `verification-before-completion`: Verify real command evidence before asserting task completion.
 - Skill `systematic-debugging`: 4-phase root-cause investigation before writing fixes.
-- Skill `ui-ux-pro-max`: Design systems, visual hierarchy, responsive layout, and a11y audits.
+- Skill `ui-ux`: Design systems, visual hierarchy, responsive layout, and a11y audits.

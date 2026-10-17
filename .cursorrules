@@ -8,4 +8,4 @@
 - `subagent-driven-development`: Dispatch task-by-task execution with fresh context.
 - `verification-before-completion`: Gated command check (exit code 0 required).
 - `systematic-debugging`: Reproduce and trace before proposing fixes.
-- `ui-ux-pro-max`: Design intelligence, visual hierarchy, responsive layout, and accessibility.
+- `ui-ux`: Design intelligence, visual hierarchy, responsive layout, and accessibility.

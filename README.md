@@ -29,7 +29,7 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
 | **Context Pollution** | Reads entire codebase histories into the main context; hallucinations spike. | **Subagent Helpers**: Spawns isolated workers for read-only exploration and reproduction tests. |
 | **Premature Completion** | Claims *"I fixed the bug!"* based on conversational optimism without proof. | **Gated Verification**: Strict protocol forbidding task closure without terminal evidence (`exit code 0`). |
 | **Guesswork Debugging** | Applies random patches or wraps errors in empty `try/catch` blocks. | **Systematic Debugging**: Enforces a strict 4-phase root-cause investigation cycle before touching code. |
-| **Unstyled / Inaccessible UI** | Generates generic, inconsistent CSS with arbitrary spacing, unreadable contrast, and zero accessibility. | **UI/UX Pro Max Engine**: Enforces design systems, 8pt spatial grid, 60-30-10 palettes, fluid typography, and WCAG AA audits. |
+| **Unstyled / Inaccessible UI** | Generates generic, inconsistent CSS with arbitrary spacing, unreadable contrast, and zero accessibility. | **UI/UX Design Engine**: Enforces design systems, 8pt spatial grid, 60-30-10 palettes, fluid typography, and WCAG AA audits. |
 
 ---
 
@@ -56,7 +56,7 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
                          │                   │                   │
                          ▼                   ▼                   ▼
            ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐
-           │   SUBAGENT-HELPER WORKER  │   │   SYSTEMATIC DEBUGGING    │   │      UI/UX PRO MAX        │
+           │   SUBAGENT-HELPER WORKER  │   │   SYSTEMATIC DEBUGGING    │   │    UI/UX DESIGN ENGINE    │
            │  • Read-Only Symbol Map   │   │  1. Reproduce (100%)      │   │  • Design Systems & Tokens│
            │  • Isolated Test Scripts  │   │  2. Trace to Origin       │   │  • Responsive Layouts     │
            │  • Mechanical Refactors   │   │  3. Form Hypothesis       │   │  • WCAG 2.2 AA Audits     │
@@ -148,8 +148,8 @@ All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML
 - 4-phase investigation protocol: **Reproduce** &rarr; **Trace** &rarr; **Hypothesize** &rarr; **Minimal Fix**.
 - Strictly prohibits speculative guessing or suppressing exceptions.
 
-### 6. `ui-ux-pro-max`
-*Location: `skills/ui-ux-pro-max/SKILL.md`*
+### 6. `ui-ux`
+*Location: `skills/ui-ux/SKILL.md`*
 - Complete design intelligence engine for web, mobile, and desktop interfaces.
 - Design systems, 8pt spatial grid, semantic color tokens (60-30-10 distribution rule), fluid typography scales, visual archetype selection matrix (Clean SaaS, Bento Grid, Dark Mode, Neo-Brutalism), responsive breakpoints, micro-interactions, and WCAG 2.2 AA accessibility pre-flight audits.
 

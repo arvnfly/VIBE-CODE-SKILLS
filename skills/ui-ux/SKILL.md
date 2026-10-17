@@ -1,46 +1,46 @@
 ---
-name: ui-ux-pro-max
-description: Complete design intelligence engine for web, mobile, and desktop interfaces. Covers design systems, visual styles, color palettes, typography, responsive layouts, accessibility audits, micro-interactions, and component blueprints.
+name: ui-ux
+description: Comprehensive UI/UX design intelligence engine for web, mobile, and desktop interfaces. Covers design systems, visual hierarchy, 8pt spatial grids, semantic color palettes (60-30-10 rule), fluid typography scales, visual archetypes, responsive layouts, accessibility audits (WCAG 2.2 AA), and micro-interactions.
 tools: Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 ---
 
-# UI/UX Pro Max - Design Intelligence Engine
+# UI/UX Design Intelligence Engine
 
-A self-contained, zero-dependency design intelligence skill for building professional, accessible, and high-converting user interfaces across web, mobile, and desktop platforms.
+A self-contained, zero-dependency design intelligence skill for designing, building, and auditing user interfaces across web, mobile, and desktop applications.
 
 ---
 
 ## 1. Design System Foundations
 
 ### The 8-Point Spatial Grid
-All margins, paddings, gaps, and component heights must align to multiples of 8px (with 4px for tight micro-spacing):
-- `space-1`: 4px (micro-spacing: icon-to-label, badge padding)
-- `space-2`: 8px (compact padding, input gap)
-- `space-3`: 12px (form row gap, card inner padding compact)
-- `space-4`: 16px (standard baseline padding, body gutter)
-- `space-6`: 24px (card padding, section sub-gap)
-- `space-8`: 32px (container padding, component separation)
+All layout dimensions, margins, paddings, component heights, and gaps must align to 8px intervals (using 4px only for tight micro-alignments):
+- `space-1`: 4px (micro-spacing: icon-to-label, badge inner padding)
+- `space-2`: 8px (compact padding, input gap, list item separation)
+- `space-3`: 12px (form row gap, compact card padding)
+- `space-4`: 16px (standard component padding, mobile gutter)
+- `space-6`: 24px (card body padding, grid column gap)
+- `space-8`: 32px (container padding, major section sub-gap)
 - `space-12`: 48px (section vertical rhythm)
-- `space-16`: 64px (hero padding, major layout divider)
+- `space-16`: 64px (hero padding, primary page divider)
 
-### Border Radii Standards
-- `radius-sm`: 4px to 6px (inputs, badges, tooltips)
-- `radius-md`: 8px to 10px (buttons, small cards, dropdowns)
+### Border Radii System
+- `radius-sm`: 4px to 6px (inputs, badges, tooltips, tags)
+- `radius-md`: 8px to 10px (buttons, small cards, dropdown menus)
 - `radius-lg`: 12px to 16px (cards, modal dialogs, bento panels)
-- `radius-full`: 9999px (pills, avatars, rounded status tags)
+- `radius-full`: 9999px (pills, avatars, status indicators)
 
 ---
 
-## 2. Visual Style Matrix
+## 2. Visual Style Archetypes
 
-Select the visual archetype based on domain and user intent:
+Select the visual archetype based on domain and product requirements:
 
 | Style Archetype | Target Domains | Key Characteristics | Anti-Patterns |
 | :--- | :--- | :--- | :--- |
-| **Clean Modern SaaS** | B2B, DevTools, Dashboards, Productivity | Neutral slate/zinc base, subtle borders (`1px solid #E2E8F0`), single brand accent, high information density | Avoid gradient overkill, excessive drop shadows, low-contrast text |
+| **Clean Modern SaaS** | B2B, DevTools, Dashboards, Productivity | Neutral slate/zinc canvas, hairline borders (`1px solid var(--border-subtle)`), single brand accent, high information density | Avoid gradient clutter, excessive drop shadows, low-contrast text |
 | **Bento Grid** | Feature showcases, landing pages, modern portfolios | Modular rounded cards (`radius-lg`), varying column spans, subtle backdrop blur, asymmetric visual anchors | Avoid uneven inner padding across cards, chaotic visual weights |
-| **Dark Mode High-Contrast** | Crypto, AI tools, developer consoles | Deep dark surfaces (`#090A0F`, `#12131A`), crisp contrasting borders (`rgba(255,255,255,0.08)`), glowing semantic accents | Avoid pure `#000000` backgrounds, washed-out gray text under 4.5:1 contrast |
+| **Dark Mode High-Contrast** | Developer consoles, AI interfaces, telemetry | Deep dark surfaces (`#090A0F`, `#12131A`), crisp contrasting borders (`rgba(255,255,255,0.08)`), glowing semantic accents | Avoid pure `#000000` backgrounds, washed-out gray text under 4.5:1 contrast |
 | **Neo-Brutalism** | Web3, Gen-Z apps, creative agencies | High-contrast thick solid borders (`2px - 3px #000`), hard offset drop shadows (`4px 4px 0 #000`), bold saturated color blocks | Avoid tiny illegible text, unreadable interactive states |
 | **Corporate Trust** | Fintech, Healthcare, Enterprise, Legal | Deep navy, slate, and emerald palettes; structured grids; serif/sans hybrid typography; restrained animations | Avoid playful rounded bubbly components, neon colors |
 | **Minimalist Editorial** | Publications, high-end commerce, documentation | Generous white space, refined typography scales, monochrome with single spot color, clean hairline dividers | Avoid decorative badges, busy animations, cluttered iconography |
@@ -55,7 +55,7 @@ Select the visual archetype based on domain and user intent:
 - **10% Intentional Accent**: Primary actions, active navigation indicator, focused state, key metrics (`bg-accent`, `text-accent`).
 
 ### Semantic Color Token Architecture
-Every project must implement tokenized semantic colors rather than hardcoded hex values:
+Implement tokenized semantic colors rather than hardcoded hex values:
 
 ```css
 :root {
@@ -149,7 +149,7 @@ Every project must implement tokenized semantic colors rather than hardcoded hex
 - `xs`: `< 640px` (Single column, full-width cards, bottom sheets, 16px horizontal gutter)
 - `sm`: `>= 640px` (2-column grids, compact modals)
 - `md`: `>= 768px` (Tablet layouts, collapsible sidebars, multi-column forms)
-- `lg`: `>= 1024px` (Desktop desktop layouts, fixed sidebars, 3-column bento grids, 32px gutters)
+- `lg`: `>= 1024px` (Desktop layouts, fixed sidebars, 3-column bento grids, 32px gutters)
 - `xl`: `>= 1280px` (Wide desktop, maximum container width constraint: `max-w-7xl` or `1200px`)
 
 ### Critical Layout Rules
@@ -195,7 +195,7 @@ When `subagent-council` reviews a prompt or project diff:
 - Rejects raw hardcoded hex values, unstyled native inputs, and layout overflowing.
 
 ### Integration with Sub-Agent Helper
-Dispatch `subagent-helper` in `ui-ux-pro-max` mode to:
+Dispatch `subagent-helper` in `ui-ux` mode to:
 1. Scan CSS/Tailwind classes for inconsistent spacing, font sizes, or color values.
 2. Generate responsive component code or design tokens without altering application business logic.
 3. Audit accessibility tree attributes (`aria-expanded`, `aria-controls`, `role`, `tabindex`).

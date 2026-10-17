@@ -9,4 +9,4 @@ Base Rules:
 - **`subagent-driven-development`**: Multi-task orchestration with fresh subagents and inter-task review barriers.
 - **`verification-before-completion`**: Strict gated verification requiring concrete terminal evidence (exit code 0).
 - **`systematic-debugging`**: 4-phase root cause resolution protocol before altering application code.
-- **`ui-ux-pro-max`**: Design intelligence engine for design systems, responsive layouts, color tokens, and accessibility audits.
+- **`ui-ux`**: Design intelligence engine for design systems, responsive layouts, color tokens, and accessibility audits.

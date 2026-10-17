@@ -8,4 +8,4 @@
 - SDD: `skills/subagent-driven-development/SKILL.md`
 - Verification: `skills/verification-before-completion/SKILL.md`
 - Debugging: `skills/systematic-debugging/SKILL.md`
-- UI/UX: `skills/ui-ux-pro-max/SKILL.md`
+- UI/UX: `skills/ui-ux/SKILL.md`
