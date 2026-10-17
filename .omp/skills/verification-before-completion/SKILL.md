@@ -1,6 +1,6 @@
 ---
 name: verification-before-completion
-description: Strict gated verification protocol requiring command evidence before asserting task completion (inspired by obra/superpowers)
+description: Strict gated verification protocol requiring command evidence before asserting task completion
 tools: Read, Bash
 model: inherit
 ---

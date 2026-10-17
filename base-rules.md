@@ -1,4 +1,4 @@
-# Universal Agent Base Rules (Superpowers Core)
+# Universal Agent Base Rules (Vibe Code Core)
 
 ## 1. Disiplin Verifikasi & Anti-Slop
 - **Evidence Before Assertion**: Jangan pernah menyatakan kode berhasil, bug selesai, atau fitur siap tanpa menjalankan verifikasi nyata (exit code 0).

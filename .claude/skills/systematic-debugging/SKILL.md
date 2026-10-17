@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: 4-phase root-cause investigation protocol before proposing or writing fixes (inspired by obra/superpowers)
+description: 4-phase root-cause investigation protocol before proposing or writing fixes
 tools: Read, Grep, Glob, Bash
 model: inherit
 ---

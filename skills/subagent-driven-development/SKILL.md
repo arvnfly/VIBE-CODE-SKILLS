@@ -1,6 +1,6 @@
 ---
 name: subagent-driven-development
-description: Execute implementation plans by dispatching fresh task-isolated subagents with council review gates (inspired by obra/superpowers)
+description: Execute implementation plans by dispatching fresh task-isolated subagents with council review gates
 tools: Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 ---

@@ -1,6 +1,6 @@
 {
   "name": "vibe-code-skills",
-  "description": "Council review, helper workers, and superpowers workflow skills for Cursor",
+  "description": "Council review, helper workers, and vibe-code workflow skills for Cursor",
   "version": "1.0.0",
-  "keywords": ["skills", "council", "helper", "sdd", "verification", "cursor", "superpowers"]
+  "keywords": ["skills", "council", "helper", "sdd", "verification", "cursor", "vibe-code"]
 }
