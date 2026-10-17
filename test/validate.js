@@ -6,10 +6,10 @@ let errors = 0;
 
 function assert(condition, message) {
   if (!condition) {
-    console.error(`❌ FAIL: ${message}`);
+    console.error(`FAIL: ${message}`);
     errors++;
   } else {
-    console.log(`✅ PASS: ${message}`);
+    console.log(`PASS: ${message}`);
   }
 }
 
@@ -112,5 +112,5 @@ if (errors > 0) {
   console.error(`\nValidation failed with ${errors} error(s).`);
   process.exit(1);
 } else {
-  console.log('\n🎉 All checks passed! Repository is 100% valid and verified.');
+  console.log('\nAll checks passed! Repository is 100% valid and verified.');
 }

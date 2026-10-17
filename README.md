@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ VIBE-CODE SKILLS
+# VIBE-CODE SKILLS
 
 **Standardized Multi-Agent Protocols & Skills for Autonomous AI Coding Agents**
 
@@ -13,13 +13,13 @@
 
 ---
 
-[Quickstart](#quickstart) • [Why Vibe-Code?](#why-vibe-code-skills) • [Architecture](#architecture) • [Core Skills](#core-skills) • [Supported Agents](#supported-agents) • [Verification](#verification)
+[Quickstart](#quickstart) • [Why Vibe-Code?](#why-vibe-code-skills) • [Architecture](#architecture) • [Core Skills](#core-skills) • [Supported Agents](#supported-agents) • [Verification](#verification--testing)
 
 </div>
 
 ---
 
-## 🎯 Why VIBE-CODE Skills?
+## Why VIBE-CODE Skills?
 
 Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf) fail predictably due to three structural pitfalls:
 
@@ -32,7 +32,7 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
                                   [ USER REQUEST ]
@@ -85,7 +85,7 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
 
 ---
 
-## ⚡ Quickstart
+## Quickstart
 
 Install VIBE-CODE Skills into any existing project in 3 seconds:
 
@@ -114,7 +114,7 @@ git clone https://github.com/arvnfly/VIBE-CODE-SKILLS.git
 
 ---
 
-## 🧩 Core Skills
+## Core Skills
 
 All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML frontmatter.
 
@@ -148,7 +148,7 @@ All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML
 
 ---
 
-## 🤖 Supported Agents
+## Supported Agents
 
 VIBE-CODE Skills automatically maps to every major coding agent:
 
@@ -166,7 +166,7 @@ VIBE-CODE Skills automatically maps to every major coding agent:
 
 ---
 
-## 🛡️ Anti-Slop Principles
+## Anti-Slop Principles
 
 1. **YAGNI & Stdlib First**: No factories for single products, no unrequested abstractions, and no third-party libraries for what standard libraries can do.
 2. **Minimal Blast Radius**: Touch only lines and files directly required to fulfill the user request.
@@ -175,7 +175,7 @@ VIBE-CODE Skills automatically maps to every major coding agent:
 
 ---
 
-## 🧪 Verification & Testing
+## Verification & Testing
 
 This repository includes continuous automated verification for all schemas, skills, and installers:
 
@@ -187,25 +187,31 @@ npm test
 Expected output:
 ```
 --- 1. Validating JSON Manifests ---
-✅ PASS: All plugin manifests are valid JSON
+PASS: package.json is valid JSON
+PASS: gemini-extension.json is valid JSON
+PASS: .antigravity-plugin/plugin.json is valid JSON
+PASS: .claude-plugin/plugin.json is valid JSON
+PASS: .codex-plugin/plugin.json is valid JSON
+PASS: .cursor-plugin/plugin.json is valid JSON
+PASS: .omp/plugin.json is valid JSON
 
 --- 2. Validating Platform Entrypoints & Root Files ---
-✅ PASS: All platform rules and entrypoints exist
+PASS: All platform rules and entrypoints exist
 
 --- 3. Validating Core Skills Structure & Frontmatter ---
-✅ PASS: All 5 skills verified across all client directories
+PASS: All 5 skills verified across all client directories
 
 --- 4. Checking Clean Universal English ---
-✅ PASS: 100% universal English verified
+PASS: All content verified for universal English language
 
-🎉 All checks passed! Repository is 100% valid and verified.
+All checks passed! Repository is 100% valid and verified.
 ```
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request:
+Contributions are welcome:
 1. Fork the repository.
 2. Ensure any new skill includes a valid `SKILL.md` with YAML frontmatter.
 3. Run `npm test` to verify all checks pass.
@@ -213,6 +219,6 @@ Contributions are welcome! Please open an issue or submit a pull request:
 
 ---
 
-## 📄 License
+## License
 
-[MIT](LICENSE) © [rayz](https://github.com/arvnfly)
+[MIT](LICENSE) (c) [rayz](https://github.com/arvnfly)
