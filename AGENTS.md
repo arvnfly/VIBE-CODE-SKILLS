@@ -4,7 +4,8 @@ Base Rules:
 <!-- include: base-rules.md -->
 
 ## Skills & Sub-Agents Available
-- **`subagent-council`**: Review multi-lensa untuk pre-execution (Prompt Review) dan post-execution (Project Audit).
-- **`subagent-helper`**: Eksekutor tugas terisolasi (Exploration, Test Generation, Mechanical Refactoring).
-- **`subagent-driven-development`**: Pola orkestrasi rencana multi-task via fresh subagent + review barrier.
-- **`verification-before-completion`**: Protokol gated verification mewajibkan bukti terminal nyata (exit code 0).
+- **`subagent-council`**: Multi-lens evaluation for pre-execution (Prompt Review) and post-execution (Project Audit).
+- **`subagent-helper`**: Task-isolated worker (Exploration, Test Generation, Mechanical Refactoring).
+- **`subagent-driven-development`**: Multi-task orchestration with fresh subagents and inter-task review barriers.
+- **`verification-before-completion`**: Strict gated verification requiring concrete terminal evidence (exit code 0).
+- **`systematic-debugging`**: 4-phase root cause resolution protocol before altering application code.

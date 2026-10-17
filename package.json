@@ -1,21 +1,35 @@
 {
   "name": "vibe-code-skills",
   "version": "1.0.0",
-  "description": "Multi-agent council, verification gates, and isolated helper skills for Antigravity, Claude Code, Oh My Pi, Codex, Cursor, Windsurf, Aider, and Copilot",
+  "description": "Universal multi-agent council, verification gates, and isolated helper skills for Antigravity, Claude Code, Cursor, Codex, Windsurf, Oh My Pi, Gemini CLI, Aider, and Copilot",
+  "main": "test/validate.js",
+  "scripts": {
+    "test": "node test/validate.js"
+  },
   "keywords": [
     "agent-skills",
     "vibe-code",
+    "ai-agent",
+    "multi-agent",
     "council",
     "helper",
     "antigravity",
     "claude-code",
-    "oh-my-pi",
-    "codex",
     "cursor",
     "windsurf",
+    "codex",
+    "gemini",
     "aider",
     "copilot"
   ],
   "author": "rayz <raiztzy15@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arvnfly/VIBE-CODE-SKILLS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arvnfly/VIBE-CODE-SKILLS/issues"
+  },
+  "homepage": "https://github.com/arvnfly/VIBE-CODE-SKILLS#readme"
 }

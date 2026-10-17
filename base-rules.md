@@ -1,22 +1,22 @@
 # Universal Agent Base Rules (Vibe Code Core)
 
-## 1. Disiplin Verifikasi & Anti-Slop
-- **Evidence Before Assertion**: Jangan pernah menyatakan kode berhasil, bug selesai, atau fitur siap tanpa menjalankan verifikasi nyata (exit code 0).
-- **Blast Radius Terbatas**: Ubah hanya baris/file yang diminta. Jangan merefaktor kode yang tidak diminta atau menambahkan dependensi jika stdlib/native mencukupi.
-- **Konfirmasi Operasi Destruktif**: Operasi penghapusan data, reset repository, atau manipulasi file kritis wajib meminta konfirmasi eksplisit pengguna.
-- **Continuous Execution**: Jalankan seluruh langkah yang telah disepakati tanpa jeda pertanyaan sepele. Ambil keputusan teknis mandiri berdasarkan acceptance criteria.
+## 1. Verification Discipline & Anti-Slop
+- **Evidence Before Assertion**: Never state code works, a bug is fixed, or a feature is complete without running real terminal verification (exit code 0).
+- **Limited Blast Radius**: Modify only the requested lines and files. Never refactor unrequested code or introduce dependencies when standard library or native platform features suffice.
+- **Confirm Destructive Operations**: Explicit confirmation is strictly required prior to running destructive file modifications, database drop/truncates, or repository resets.
+- **Continuous Execution**: Execute all planned steps autonomously without halting for trivial questions. Make sound technical decisions against measurable acceptance criteria.
 
-## 2. Matriks Delegasi Sub-Agent
+## 2. Sub-Agent Delegation Matrix
 
-| Skenario | Sub-Agent Target | Mode / Peran |
+| Scenario | Target Sub-Agent | Operating Mode |
 |---|---|---|
-| Prompt kompleks / ambigu / fitur baru | `subagent-council` | Mode 1: Prompt Review |
-| Review hasil kerja task / pre-commit | `subagent-council` | Mode 2: Project Review |
-| Eksplorasi repositori / symbol tracing | `subagent-helper` | Mode 1: Exploration (Read-Only) |
-| Pembuatan test reproduksi bug | `subagent-helper` | Mode 2: Test Generation |
-| Formatting massal / migrasi format | `subagent-helper` | Mode 3: Mechanical Refactor |
-| Implementasi rencana multi-task | `subagent-driven-development` | Orchestrator (Fresh Subagent per Task) |
+| Complex, ambiguous prompts, or new feature requests | `subagent-council` | Mode 1: Prompt Review |
+| Post-implementation task review or pre-commit checks | `subagent-council` | Mode 2: Project Review |
+| Codebase mapping, symbol tracing, or exploration | `subagent-helper` | Mode 1: Exploration (Read-Only) |
+| Bug reproduction test generation | `subagent-helper` | Mode 2: Test Generation |
+| Mass formatting or repetitive schema migrations | `subagent-helper` | Mode 3: Mechanical Refactor |
+| Multi-task plan execution | `subagent-driven-development` | Orchestrator (Fresh Subagent per Task) |
 
-## 3. Komunikasi & Berbagi State
-- Sesi sub-agent menerima konteks minimal (fresh context) dan mengembalikan laporan terstruktur ke agen utama.
-- File koordinasi bersama (`task.md` atau `plan.md`) menjadi acuan progres tunggal.
+## 3. Communication & State Sharing
+- Subagents receive minimal, fresh context and return structured reports back to the parent agent.
+- A shared markdown coordination file (`task.md` or `plan.md`) serves as the single source of truth for task progress.

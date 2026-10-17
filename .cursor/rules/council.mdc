@@ -5,7 +5,7 @@ alwaysApply: true
 ---
 # Cursor Multi-Agent Directive
 
-Ikuti aturan di `base-rules.md`:
-1. **Council Mode**: Evaluasi prompt dengan lensa Clarifier, Skeptic, Minimalist. Audit project dengan lensa Correctness, Security, Architecture.
-2. **Helper Mode**: Isolasi tugas pencarian kode, pembuatan test, dan refactor mekanikal.
-3. **Gated Verification**: Wajib menjalankan command verifikasi terminal dan memperoleh exit code 0 sebelum menyatakan tugas selesai.
+Follow rules in `base-rules.md`:
+1. **Council Mode**: Evaluate prompts with Clarifier, Skeptic, and Minimalist lenses. Audit project diffs with Correctness, Security, and Architecture lenses.
+2. **Helper Mode**: Offload symbol search, test generation, and mechanical refactors to isolated workers.
+3. **Gated Verification**: Concrete terminal execution evidence and exit code 0 are strictly mandatory before marking any task as complete.

@@ -2,6 +2,7 @@
 <!-- include: base-rules.md -->
 
 ## Sub-Agent Protocols
-- **Council**: Review prompt sebelum eksekusi (Clarifier, Skeptic, Minimalist) dan audit hasil kerja (Correctness, Security, Architecture).
-- **Helper**: Jalankan tugas pencarian kode, pembuatan test kasus mandiri, dan refactor mekanikal dalam konteks terisolasi.
-- **Verification Gate**: Tidak ada klaim selesai tanpa bukti output perintah verifikasi dan exit code 0.
+- **Council**: Review prompt before execution (Clarifier, Skeptic, Minimalist) and audit completed work (Correctness, Security, Architecture).
+- **Helper**: Perform codebase search, standalone test generation, and mechanical refactors in isolated context.
+- **Verification Gate**: No completion claims without terminal execution evidence and exit code 0.
+- **Systematic Debugging**: Reproduce, trace, hypothesize, and apply minimal fixes.

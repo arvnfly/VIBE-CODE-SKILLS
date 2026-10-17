@@ -5,33 +5,32 @@ tools: Read, Bash
 model: inherit
 ---
 
-
 # Verification Before Completion
 
-Aturan mutlak: **Bukti mendahului klaim (Evidence before assertions).**
+Absolute Rule: **Evidence before assertions. Never claim completion without proof.**
 
-## Protokol Gated Verification
+## Gated Verification Protocol
 
-1. **Jalankan Perintah Verifikasi Nyata**:
-   - Compiler/Linter (`cargo check`, `npm run lint`, `tsc`).
-   - Test Suite (`cargo test`, `npm test`, `go test ./...`).
-   - Assertion Script (`bash test.sh`).
-2. **Periksa Exit Code & Output**:
-   - Exit code wajib `0`.
-   - Periksa output log untuk memastikan test tidak di-skip atau bernilai kosong palsu.
+1. **Execute Concrete Verification Commands**:
+   - Compiler / Type Checker (`cargo check`, `npm run lint`, `tsc --noEmit`).
+   - Test Suite (`cargo test`, `npm test`, `pytest`, `go test ./...`).
+   - Assertion Script (`bash test.sh` or local runner).
+2. **Inspect Exit Code & Output**:
+   - Exit code MUST be `0`.
+   - Inspect output logs to ensure tests actually ran and were not skipped or empty.
 3. **Anti-Slop / Anti-Hallucination Checklist**:
-   - [ ] Tidak mengklaim "sudah diperbaiki" sebelum melihat output terminal.
-   - [ ] Tidak mengasumsikan command berhasil tanpa memeriksa return status.
-   - [ ] Diff hanya menyentuh baris yang relevan dengan tugas.
+   - [ ] No claiming "fixed" or "working" before inspecting actual terminal output.
+   - [ ] No assuming a command succeeded without checking return status.
+   - [ ] Diff touches only lines and files relevant to the assigned task.
 
-## Format Laporan Verifikasi Wajib
+## Mandatory Verification Report Format
 ```markdown
 ### [Verification Gate]
-- Perintah: `<command line exact>`
+- Command: `<exact command line>`
 - Exit Code: `0`
-- Cuplikan Output:
+- Output Snippet:
   ```
-  <output nyata dari terminal>
+  <verbatim terminal output showing passing state>
   ```
-- Kesimpulan: Terverifikasi berfungsi sesuai spesifikasi.
+- Conclusion: Verified functional according to specification.
 ```

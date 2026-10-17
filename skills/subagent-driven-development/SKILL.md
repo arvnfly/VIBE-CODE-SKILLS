@@ -5,12 +5,11 @@ tools: Read, Write, Edit, Glob, Grep, Bash
 model: inherit
 ---
 
-
 # Subagent-Driven Development (SDD)
 
-SDD mengeksekusi rencana kerja dengan mendelegasikan setiap tugas ke sub-agent baru yang terisolasi. Ini mencegah context bloat pada sesi utama dan memastikan setiap tugas diaudit sebelum lanjut.
+SDD executes implementation plans by delegating each task to an isolated subagent with a fresh context window. This prevents context bloat in the main session and ensures every task is audited before proceeding.
 
-## Siklus Inti SDD
+## Core SDD Lifecycle
 
 ```
 [Plan Task] ──> [Fresh Subagent / Helper] ──> [Council Task Review] ──> [Next Task]
@@ -20,21 +19,21 @@ SDD mengeksekusi rencana kerja dengan mendelegasikan setiap tugas ke sub-agent b
 [All Complete] ───────────────────────────> [Final Council Audit] ──> [Complete]
 ```
 
-## 1. Aturan Delegasi & Isolasi
-- **Konteks Murni (Fresh Context)**: Jangan wariskan seluruh riwayat percakapan ke sub-agent. Berikan hanya:
-  1. Spesifikasi tugas saat ini.
-  2. Lokasi file target.
-  3. Acceptance criteria terukur.
-- **Continuous Execution**: Jangan berhenti untuk menanyakan hal sepele ke pengguna di tengah rencana. Putuskan berdasarkan spesifikasi yang disepakati.
+## 1. Delegation & Context Isolation
+- **Fresh Context**: Do not inherit entire chat history into worker subagents. Pass only:
+  1. Current task specification.
+  2. Target file paths.
+  3. Measurable acceptance criteria.
+- **Continuous Execution**: Do not halt for trivial confirmations during plan execution. Resolve technical decisions autonomously against the agreed specification.
 
-## 2. Review Gate Antar-Tugas
-Setiap sub-agent menyelesaikan tugasnya, panggil `subagent-council`:
-1. **Spec Compliance**: Apakah kode memenuhi acceptance criteria tugas ini?
-2. **Quality & Invariants**: Apakah ada broken syntax, regression, atau unnecessary complexity?
-3. **Evidence**: Apakah command verifikasi mengembalikan exit code 0?
+## 2. Inter-Task Review Gates
+After each subagent completes its designated task, invoke `subagent-council`:
+1. **Spec Compliance**: Did the code satisfy the task acceptance criteria?
+2. **Quality & Invariants**: Are there regressions, broken syntax, or unrequested complexity?
+3. **Evidence**: Did the verification command exit with status code 0?
 
 ## 3. Whole-Branch Final Review
-Setelah semua tugas rencana selesai, jalankan audit menyeluruh:
-- Run full test suite.
-- Audit diff menyeluruh (`git diff` atau review file).
-- Bersihkan file scratch / sementara.
+Once all tasks are marked complete:
+- Run the full project test suite.
+- Audit the entire diff (`git diff` or patch inspection).
+- Clean up temporary files, logs, and scratch scripts.

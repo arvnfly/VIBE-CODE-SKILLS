@@ -4,7 +4,8 @@ Include base rules:
 <!-- include: base-rules.md -->
 
 ## Sub-Agents & Workflows
-- `council`: Prompt review (lensa Clarifier, Skeptic, Minimalist) & Project review (lensa Correctness, Security, Architecture).
-- `helper`: Worker terisolasi untuk eksplorasi kode, pembuatan test, dan refactor mekanikal.
-- `subagent-driven-development`: Eksekusi sekuensial dengan task review gate.
-- `verification-before-completion`: Gated command verification sebelum closing.
+- `council`: Prompt review (Clarifier, Skeptic, Minimalist lenses) & Project review (Correctness, Security, Architecture lenses).
+- `helper`: Isolated worker for code exploration, test generation, and mechanical refactoring.
+- `subagent-driven-development`: Sequential task execution with inter-task review gates.
+- `verification-before-completion`: Gated command verification prior to task closure.
+- `systematic-debugging`: 4-phase root-cause investigation prior to modifications.

@@ -1,9 +1,9 @@
 ---
 description: Spawn helper subagent for isolated micro-tasks
 ---
-Gunakan skill `subagent-helper`:
-Jalankan instruksi target dalam mode terisolasi:
-- `explore`: Pemetaan dependency / pencarian simbol read-only.
-- `test`: Pembuatan test kasus mandiri tanpa mengubah kode aplikasi.
-- `refactor`: Perubahan mekanikal / formatting massal tanpa perubahan logika.
-Kembalikan laporan ringkas sesuai template output Helper.
+Use the `subagent-helper` skill:
+Execute the target instruction in isolated mode:
+- `explore`: Dependency mapping / read-only symbol search.
+- `test`: Standalone reproduction or unit test generation without touching application code.
+- `refactor`: Mechanical transformations or batch formatting without logic changes.
+Return a concise execution report matching the Helper output contract.

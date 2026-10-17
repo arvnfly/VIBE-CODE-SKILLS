@@ -4,6 +4,7 @@
 
 ## Active Skills & Agents
 - `subagent-council`: Review prompt before coding and review project before closing.
-- `subagent-helper`: Offload isolated search, test generation, and refactoring.
-- `subagent-driven-development`: Dispatch task-by-task execution.
+- `subagent-helper`: Offload isolated search, test generation, and mechanical refactoring.
+- `subagent-driven-development`: Dispatch task-by-task execution with fresh context.
 - `verification-before-completion`: Gated command check (exit code 0 required).
+- `systematic-debugging`: Reproduce and trace before proposing fixes.

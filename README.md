@@ -1,110 +1,218 @@
-# vibe-code skills
+<div align="center">
 
-100% Agent Skills, rule configurations, and workflow directives for LLM coding agents.
+# ⚡ VIBE-CODE SKILLS
 
-Compatible across Antigravity, Claude Code, Oh My Pi, OpenAI Codex, Cursor, Windsurf, Gemini CLI, Aider, and GitHub Copilot.
+**Standardized Multi-Agent Protocols & Skills for Autonomous AI Coding Agents**
 
----
+[![CI & Skills Verification](https://github.com/arvnfly/VIBE-CODE-SKILLS/actions/workflows/ci.yml/badge.svg)](https://github.com/arvnfly/VIBE-CODE-SKILLS/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/arvnfly/VIBE-CODE-SKILLS/pulls)
+[![Compatible With](https://img.shields.io/badge/Agents-Antigravity%20%7C%20Claude%20%7C%20Cursor%20%7C%20Codex%20%7C%20Windsurf%20%7C%20Copilot-orange.svg)](#supported-agents)
 
-## Overview
-
-Coding agents frequently fail due to three structural problems:
-1. **Unscoped Execution**: Agents act on ambiguous prompts without verifying constraints or clarifying assumptions.
-2. **Context Pollution**: Agents load entire project histories into the context window for micro-tasks that require only isolated inspection.
-3. **Premature Completion**: Agents assert success based on conversational assumptions rather than exit codes and compiler/test outputs.
-
-`vibe-code skills` solves this natively through standardized Agent Skills (`SKILL.md`) and project instructions without requiring external CLI binaries or third-party dependencies:
-- **Council**: Two-phase multi-lens review for prompt validation (pre-execution) and diff auditing (post-execution).
-- **Helper**: Scoped execution patterns for read-only exploration, isolated test reproduction, and mechanical edits.
-- **Subagent-Driven Development (SDD)**: Task dispatch patterns with fresh context and review barriers.
-- **Verification Gates**: Standardized rule constraints requiring command execution evidence (exit code 0) before closing.
-- **Systematic Debugging**: 4-phase root cause resolution before touching application code.
+*Zero external binaries. 100% portable markdown instructions, multi-lens review gates, and subagent isolation protocols.*
 
 ---
 
-## Agent Integration Mapping
+[Quickstart](#quickstart) • [Why Vibe-Code?](#why-vibe-code-skills) • [Architecture](#architecture) • [Core Skills](#core-skills) • [Supported Agents](#supported-agents) • [Verification](#verification)
 
-| Agent / Client | Config Path | How It Works |
+</div>
+
+---
+
+## 🎯 Why VIBE-CODE Skills?
+
+Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf) fail predictably due to three structural pitfalls:
+
+| Common Failure Mode | Without Vibe-Code | With VIBE-CODE Skills |
 | :--- | :--- | :--- |
-| **Antigravity** | `AGENTS.md`, `.agent/skills/` | Loaded via Antigravity skill system and agent rules |
-| **Claude Code** | `CLAUDE.md`, `.claude/commands/`, `.claude/skills/` | Custom commands (`/council`, `/helper`) and project guidelines |
-| **Oh My Pi (omp)** | `PI.md`, `.omp/skills/`, `.omp/commands/` | Native CLI commands and skill parser |
-| **OpenAI Codex** | `CODEX.md`, `.codex-plugin/plugin.json` | Project instructions and plugin metadata |
-| **Cursor** | `.cursorrules`, `.cursor/rules/council.mdc` | Always-applied workspace rules and MDC instructions |
-| **Windsurf** | `.windsurfrules` | Global memory and behavioral constraints |
-| **Gemini CLI** | `GEMINI.md`, `gemini-extension.json` | Extension definition and bootstrap instructions |
-| **Aider** | `.aider.conf.yml`, `.aider/CONVENTIONS.md` | Auto-loaded configuration and coding conventions |
-| **GitHub Copilot** | `.github/copilot-instructions.md` | Workspace custom instructions |
+| **Unscoped Execution** | Rushes into code blindly; breaks working modules with speculative abstractions. | **Pre-Execution Council**: Clarifier, Skeptic, and Minimalist lenses define binary acceptance criteria upfront. |
+| **Context Pollution** | Reads entire codebase histories into the main context; hallucinations spike. | **Subagent Helpers**: Spawns isolated workers for read-only exploration and reproduction tests. |
+| **Premature Completion** | Claims *"I fixed the bug!"* based on conversational optimism without proof. | **Gated Verification**: Strict protocol forbidding task closure without terminal evidence (`exit code 0`). |
+| **Guesswork Debugging** | Applies random patches or wraps errors in empty `try/catch` blocks. | **Systematic Debugging**: Enforces a strict 4-phase root-cause investigation cycle before touching code. |
 
 ---
 
-## Core Skills
+## 🏗️ Architecture
 
-### 1. `subagent-council`
-Path: `skills/subagent-council/SKILL.md`
-
-- **Mode 1: Review Prompt (Pre-Execution)**:
-  - *Clarifier*: Detect ambiguous adjectives, missing acceptance criteria, and unstated assumptions.
-  - *Skeptic*: Identify failure modes, edge cases, data destruction risks, and boundary limits.
-  - *Minimalist*: Enforce YAGNI, reject premature abstractions, require native/stdlib solutions.
-- **Mode 2: Review Project (Post-Execution)**:
-  - *Correctness*: Verify test outputs and exit codes.
-  - *Security*: Check input sanitization, path traversal, injection, credential exposure.
-  - *Architecture*: Identify dead code, unused dependencies, and diff pollution.
-
-### 2. `subagent-helper`
-Path: `skills/subagent-helper/SKILL.md`
-
-- **Exploration**: Read-only codebase mapping and symbol resolution.
-- **Isolated Test Generation**: Self-contained regression or reproduction test scripts.
-- **Mechanical Refactoring**: Repetitive formatting or schema migrations without logic modification.
-
-### 3. `subagent-driven-development`
-Path: `skills/subagent-driven-development/SKILL.md`
-
-- Dispatches fresh, isolated subagents per task to eliminate context bloat.
-- Applies review gates between tasks before moving forward.
-- Enforces continuous execution without pausing for trivial confirmations.
-
-### 4. `verification-before-completion`
-Path: `skills/verification-before-completion/SKILL.md`
-
-- Strictly forbids claiming task completion without terminal command evidence.
-- Requires exit code 0 and non-empty output logs.
-
-### 5. `systematic-debugging`
-Path: `skills/systematic-debugging/SKILL.md`
-
-- 4-phase root cause resolution: Reproduce, Trace, Hypothesize, Minimal Fix.
-- Prohibits speculative guessing or error swallowing.
+```
+                                  [ USER REQUEST ]
+                                         │
+                                         ▼
+                     ┌───────────────────────────────────────┐
+                     │     PRE-EXECUTION COUNCIL GATE        │
+                     │  • Clarifier: Binary Criteria (Pass)  │
+                     │  • Skeptic: Edge Cases & Blast Radius │
+                     │  • Minimalist: YAGNI / Stdlib First   │
+                     └───────────────────┬───────────────────┘
+                                         │
+                                         ▼
+                       ┌───────────────────────────────────┐
+                       │ SUBAGENT-DRIVEN DEVELOPMENT (SDD) │
+                       │    (Sequential Fresh Subagents)   │
+                       └─────────────────┬─────────────────┘
+                                         │
+                     ┌───────────────────┴───────────────────┐
+                     │                                       │
+                     ▼                                       ▼
+       ┌───────────────────────────┐           ┌───────────────────────────┐
+       │   SUBAGENT-HELPER WORKER  │           │   SYSTEMATIC DEBUGGING    │
+       │  • Read-Only Symbol Map   │           │  1. Reproduce (100%)      │
+       │  • Isolated Test Scripts  │           │  2. Trace to Origin       │
+       │  • Mechanical Refactors   │           │  3. Form Hypothesis       │
+       └─────────────┬─────────────┘           │  4. Minimal Targeted Patch│
+                     │                         └─────────────┬─────────────┘
+                     └───────────────────┬───────────────────┘
+                                         │
+                                         ▼
+                     ┌───────────────────────────────────────┐
+                     │       GATED VERIFICATION BARRIER      │
+                     │  • Real terminal execution required   │
+                     │  • Exit code MUST be 0                │
+                     │  • Evidence logged before completion  │
+                     └───────────────────┬───────────────────┘
+                                         │
+                                         ▼
+                     ┌───────────────────────────────────────┐
+                     │    POST-EXECUTION COUNCIL AUDIT       │
+                     │  • Correctness: Criteria verified     │
+                     │  • Security: Sanitization & leaks     │
+                     │  • Architecture: Diff hygiene         │
+                     └───────────────────┬───────────────────┘
+                                         │
+                                         ▼
+                             [ VERIFIED DELIVERABLE ]
+```
 
 ---
 
-## Installation
+## ⚡ Quickstart
 
-### Copy into an Existing Project
-Copy the platform configuration folder to your project root:
-- For Antigravity: copy `.agent/` and `AGENTS.md`
-- For Claude Code: copy `.claude/` and `CLAUDE.md`
-- For Oh My Pi: copy `.omp/` and `PI.md`
-- For Cursor: copy `.cursorrules` and `.cursor/`
-- For Windsurf: copy `.windsurfrules`
-- For Codex / Gemini: copy `CODEX.md` / `GEMINI.md`
+Install VIBE-CODE Skills into any existing project in 3 seconds:
 
-### Automated Script
+### One-Line Installers
 
 #### Linux / macOS:
 ```bash
-./install.sh /path/to/target-project
+curl -fsSL https://raw.githubusercontent.com/arvnfly/VIBE-CODE-SKILLS/main/install.sh | bash
 ```
 
 #### Windows (PowerShell):
 ```powershell
-.\install.ps1 -Destination "C:\path\to\target-project"
+irm https://raw.githubusercontent.com/arvnfly/VIBE-CODE-SKILLS/main/install.ps1 | iex
+```
+
+### Manual Install / Git Clone:
+```bash
+# Clone the repository
+git clone https://github.com/arvnfly/VIBE-CODE-SKILLS.git
+
+# Install into your target project
+./VIBE-CODE-SKILLS/install.sh /path/to/your/project
+# Or on Windows:
+.\VIBE-CODE-SKILLS\install.ps1 -Destination "C:\path\to\your\project"
 ```
 
 ---
 
-## License
+## 🧩 Core Skills
 
-MIT. See [LICENSE](LICENSE).
+All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML frontmatter.
+
+### 1. `subagent-council`
+*Location: `skills/subagent-council/SKILL.md`*
+- **Mode 1: Prompt Review (Pre-Execution Gate)**: Dissects complex instructions into measurable acceptance criteria using **Clarifier**, **Skeptic**, and **Minimalist** lenses.
+- **Mode 2: Project Review (Post-Execution Audit)**: Audits resulting code diffs against **Correctness**, **Security**, and **Architecture** before work is closed.
+
+### 2. `subagent-helper`
+*Location: `skills/subagent-helper/SKILL.md`*
+- **Exploration (Read-Only)**: Offloads symbol lookup and file inspection to keep the main agent's context clean.
+- **Isolated Test Generation**: Writes standalone reproduction test scripts without modifying production code.
+- **Mechanical Refactoring**: Executes repetitive batch formatting, schema renaming, or migrations.
+
+### 3. `subagent-driven-development`
+*Location: `skills/subagent-driven-development/SKILL.md`*
+- Dispatches fresh, isolated subagents per task to eliminate context degradation.
+- Enforces council review gates between individual tasks.
+- Promotes continuous autonomous execution without trivial interruptions.
+
+### 4. `verification-before-completion`
+*Location: `skills/verification-before-completion/SKILL.md`*
+- **Absolute Rule**: Evidence before assertions.
+- Requires literal terminal command logs with `exit code 0` (compiler, test suite, or linter).
+- Zero tolerance for conversational claims of success without verifiable proof.
+
+### 5. `systematic-debugging`
+*Location: `skills/systematic-debugging/SKILL.md`*
+- 4-phase investigation protocol: **Reproduce** &rarr; **Trace** &rarr; **Hypothesize** &rarr; **Minimal Fix**.
+- Strictly prohibits speculative guessing or suppressing exceptions.
+
+---
+
+## 🤖 Supported Agents
+
+VIBE-CODE Skills automatically maps to every major coding agent:
+
+| Agent / Client | Config Path | Integration Method |
+| :--- | :--- | :--- |
+| **Google Antigravity** | `AGENTS.md`, `.agent/skills/` | Native Antigravity skill system and agent rules |
+| **Claude Code** | `CLAUDE.md`, `.claude/commands/`, `.claude/skills/` | Slash commands (`/council`, `/helper`) and project guidelines |
+| **Cursor** | `.cursorrules`, `.cursor/rules/council.mdc` | Project rules and MDC always-apply instructions |
+| **Windsurf** | `.windsurfrules` | Workspace rules and memory directives |
+| **OpenAI Codex** | `CODEX.md`, `.codex-plugin/plugin.json` | Project instructions and plugin metadata |
+| **Oh My Pi (omp)** | `PI.md`, `.omp/skills/`, `.omp/commands/` | Native CLI commands and skill engine |
+| **Gemini CLI** | `GEMINI.md`, `gemini-extension.json` | Extension manifest and context rules |
+| **Aider** | `.aider.conf.yml`, `.aider/CONVENTIONS.md` | Auto-loaded configuration and conventions |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | Repository-wide custom instructions |
+
+---
+
+## 🛡️ Anti-Slop Principles
+
+1. **YAGNI & Stdlib First**: No factories for single products, no unrequested abstractions, and no third-party libraries for what standard libraries can do.
+2. **Minimal Blast Radius**: Touch only lines and files directly required to fulfill the user request.
+3. **Explicit Confirmation**: Never execute destructive operations (database drops, disk wipes, git resets) without explicit user sign-off.
+4. **Clean Diff Hygiene**: Eliminate debug logs, temporary scratch files, and dead code before committing.
+
+---
+
+## 🧪 Verification & Testing
+
+This repository includes continuous automated verification for all schemas, skills, and installers:
+
+```bash
+# Run local validation suite
+npm test
+```
+
+Expected output:
+```
+--- 1. Validating JSON Manifests ---
+✅ PASS: All plugin manifests are valid JSON
+
+--- 2. Validating Platform Entrypoints & Root Files ---
+✅ PASS: All platform rules and entrypoints exist
+
+--- 3. Validating Core Skills Structure & Frontmatter ---
+✅ PASS: All 5 skills verified across all client directories
+
+--- 4. Checking Clean Universal English ---
+✅ PASS: 100% universal English verified
+
+🎉 All checks passed! Repository is 100% valid and verified.
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request:
+1. Fork the repository.
+2. Ensure any new skill includes a valid `SKILL.md` with YAML frontmatter.
+3. Run `npm test` to verify all checks pass.
+4. Submit a pull request.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE) © [rayz](https://github.com/arvnfly)

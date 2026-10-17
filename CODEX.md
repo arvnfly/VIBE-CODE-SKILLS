@@ -2,7 +2,8 @@
 <!-- include: base-rules.md -->
 
 ## Active Directives
-- **Subagent Council**: Terapkan evaluasi prompt multi-lensa dan audit diff proyek.
-- **Subagent Helper**: Jalankan micro-task terisolasi untuk eksplorasi dan unit test.
-- **SDD**: Jalankan rencana bertahap dengan kontinuitas eksekusi.
-- **Gated Verification**: Periksa exit code 0 sebelum memberi respon final.
+- **Subagent Council**: Apply multi-perspective prompt analysis and project diff audits.
+- **Subagent Helper**: Run isolated micro-tasks for symbol exploration and test generation.
+- **SDD**: Execute plans in incremental steps with continuous autonomy.
+- **Gated Verification**: Require exit code 0 before issuing final response.
+- **Systematic Debugging**: Enforce hypothesis testing before applying code changes.

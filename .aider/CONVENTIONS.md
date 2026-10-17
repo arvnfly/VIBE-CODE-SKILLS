@@ -1,6 +1,6 @@
 # Aider Conventions
 <!-- include: ../base-rules.md -->
 
-- Gunakan pola Council (Review Prompt & Review Project) pada setiap instruksi interaktif.
-- Jangan menambahkan dependensi eksternal tanpa izin eksplisit.
-- Verifikasi dengan test command sebelum melakukan commit.
+- Apply Council review patterns (Prompt Review & Project Review) across interactive sessions.
+- Do not introduce external dependencies without explicit consent.
+- Always verify with concrete test commands before making git commits.

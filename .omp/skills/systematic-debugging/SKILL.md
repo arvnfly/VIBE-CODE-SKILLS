@@ -5,30 +5,29 @@ tools: Read, Grep, Glob, Bash
 model: inherit
 ---
 
-
 # Systematic Debugging
 
-Aturan Utama: **Jangan menebak fix sebelum menemukan akar penyebab yang terbukti.**
+Core Rule: **Never speculate or apply speculative patches before uncovering proven root causes.**
 
 ```
 [1. Reproduce] ──> [2. Trace Root Cause] ──> [3. Form Hypothesis] ──> [4. Minimal Fix & Verify]
 ```
 
-## 4 Fase Investigasi
+## 4-Phase Investigation Protocol
 
-### Fase 1: Reproduce (Reproduksi Konsisten)
-- Buat test case terisolasi atau catat command exact yang memicu bug.
-- Verifikasi bahwa kegagalan dapat direproduksi 100%.
+### Phase 1: Reproduce (Consistent Reproduction)
+- Build an isolated test case or record the exact command sequence that triggers the bug.
+- Verify that the failure reproduces deterministically (100% reproducible).
 
-### Fase 2: Trace (Lacak Akar Masalah)
-- Lacak jejak panggilan (call stack) ke baris pertama kegagalan nilai/keadaan.
-- Bedakan gejala (symptom) dari penyebab utama (root cause).
-- Dilarang membungkus error dengan `try/except: pass` untuk menyembunyikan gejala.
+### Phase 2: Trace (Trace to Origin)
+- Trace the call stack to the first line where state or values diverge from expectation.
+- Distinguish between symptoms and the underlying root cause.
+- Never wrap errors in empty `try/catch` or `try/except: pass` blocks to suppress symptoms.
 
-### Fase 3: Hypothesize (Formulasi Hipotesis)
-- Nyatakan dalam 1 kalimat: *"Bug terjadi karena X menyebabkan Y pada kondisi Z."*
-- Uji hipotesis dengan membaca kode terkait atau memeriksa state variabel.
+### Phase 3: Hypothesize (Formulate Hypothesis)
+- Express the root cause in one clear sentence: *"The bug occurs because X causes Y under condition Z."*
+- Test and confirm the hypothesis by inspecting code paths or variable states.
 
-### Fase 4: Minimal Fix & Verify
-- Buat perbaikan terkecil yang memperbaiki akar masalah (minimal blast radius).
-- Jalankan kembali perintah verifikasi dari Fase 1 untuk membuktikan fix berhasil.
+### Phase 4: Minimal Fix & Verify
+- Implement the smallest targeted patch that resolves the root cause (minimal blast radius).
+- Re-run the verification command from Phase 1 to prove the fix passes cleanly.

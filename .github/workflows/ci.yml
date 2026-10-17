@@ -12,15 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validate Skills & Manifests Structure
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Test Suite & Structure Validation
+        run: npm test
+
+      - name: Test bash installer script
         run: |
-          for f in base-rules.md AGENTS.md CLAUDE.md PI.md CODEX.md GEMINI.md .cursorrules .windsurfrules .aider.conf.yml README.md LICENSE; do
-            test -f "$f" || { echo "Missing $f"; exit 1; }
-          done
-
-          for s in subagent-council subagent-helper subagent-driven-development verification-before-completion systematic-debugging; do
-            test -f "skills/$s/SKILL.md" || { echo "Missing skills/$s/SKILL.md"; exit 1; }
-            grep -q "^name: $s" "skills/$s/SKILL.md" || { echo "Invalid frontmatter in $s"; exit 1; }
-          done
-
-          echo "All vibe-code skills and files verified successfully."
+          mkdir -p /tmp/test-dest
+          bash ./install.sh /tmp/test-dest
+          test -f /tmp/test-dest/base-rules.md
+          test -f /tmp/test-dest/skills/subagent-council/SKILL.md
+          test -f /tmp/test-dest/.agent/skills/subagent-driven-development/SKILL.md
+          test -f /tmp/test-dest/.cursor/rules/council.mdc
+          rm -rf /tmp/test-dest
+          echo "Installer test passed."
