@@ -3,8 +3,30 @@
   "version": "1.0.0",
   "description": "Universal multi-agent council, verification gates, and isolated helper skills for Antigravity, Claude Code, Cursor, Codex, Windsurf, Oh My Pi, Gemini CLI, Aider, and Copilot",
   "main": "test/validate.js",
+  "bin": {
+    "vibe-code-skills": "./bin/vibe-code-skills.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "base-rules.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "CODEX.md",
+    "GEMINI.md",
+    "PI.md",
+    ".cursorrules",
+    ".windsurfrules",
+    ".aider.conf.yml",
+    ".aider",
+    ".github/copilot-instructions.md",
+    ".agent",
+    ".claude",
+    ".omp",
+    ".cursor"
+  ],
   "scripts": {
-    "test": "node test/validate.js"
+    "test": "node test/validate.js && node test/simulate-agent.js"
   },
   "keywords": [
     "agent-skills",

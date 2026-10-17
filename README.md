@@ -1,6 +1,8 @@
 <div align="center">
 
-# VIBE-CODE SKILLS
+<img src=".github/assets/banner.svg" alt="VIBE-CODE SKILLS Banner" width="100%">
+
+<br>
 
 **Standardized Multi-Agent Protocols & Skills for Autonomous AI Coding Agents**
 
@@ -13,7 +15,7 @@
 
 ---
 
-[Quickstart](#quickstart) • [Why Vibe-Code?](#why-vibe-code-skills) • [Architecture](#architecture) • [Core Skills](#core-skills) • [Supported Agents](#supported-agents) • [Verification](#verification--testing)
+[Quickstart](#quickstart) • [Why Vibe-Code?](#why-vibe-code-skills) • [Architecture](#architecture) • [Core Skills](#core-skills) • [Examples](#examples--artifacts) • [Supported Agents](#supported-agents) • [Verification](#verification--testing)
 
 </div>
 
@@ -91,7 +93,14 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
 
 Install VIBE-CODE Skills into any existing project in 3 seconds:
 
-### One-Line Installers
+### Via NPX (Zero Setup)
+```bash
+npx vibe-code-skills
+# Or target a specific directory:
+npx vibe-code-skills /path/to/target/project
+```
+
+### One-Line Shell Installers
 
 #### Linux / macOS:
 ```bash
@@ -155,6 +164,18 @@ All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML
 
 ---
 
+## Examples & Artifacts
+
+Real-world artifacts demonstrating how skills operate during development tasks:
+
+| Example | Domain | Covered Skills | Description |
+| :--- | :--- | :--- | :--- |
+| [01-full-stack-task](examples/01-full-stack-task/) | Full-Stack Auth | `subagent-driven-development`, `subagent-council`, `verification-before-completion` | Multi-phase checklist tracker ([task.md](examples/01-full-stack-task/task.md)) and pre/post-execution review artifacts ([council-review.md](examples/01-full-stack-task/council-review.md)). |
+| [02-ui-ux-refactor](examples/02-ui-ux-refactor/) | Design System Refactor | `ui-ux` | Direct before-and-after code transformation ([before-and-after.md](examples/02-ui-ux-refactor/before-and-after.md)) applying the 8pt grid, semantic color tokens, and WCAG AA contrast. |
+| [03-systematic-debugging](examples/03-systematic-debugging/) | Root Cause Analysis | `systematic-debugging` | 4-phase investigation report ([investigation-report.md](examples/03-systematic-debugging/investigation-report.md)) diagnosing and resolving a token expiration race condition. |
+
+---
+
 ## Supported Agents
 
 VIBE-CODE Skills automatically maps to every major coding agent:
@@ -195,15 +216,13 @@ Expected output:
 ```
 --- 1. Validating JSON Manifests ---
 PASS: package.json is valid JSON
-PASS: gemini-extension.json is valid JSON
-PASS: .antigravity-plugin/plugin.json is valid JSON
-PASS: .claude-plugin/plugin.json is valid JSON
-PASS: .codex-plugin/plugin.json is valid JSON
-PASS: .cursor-plugin/plugin.json is valid JSON
-PASS: .omp/plugin.json is valid JSON
+...
 
 --- 2. Validating Platform Entrypoints & Root Files ---
 PASS: All platform rules and entrypoints exist
+
+--- 2b. Validating Concrete Walkthrough Examples ---
+PASS: All example artifacts verified
 
 --- 3. Validating Core Skills Structure & Frontmatter ---
 PASS: All 6 skills verified across all client directories
@@ -212,6 +231,17 @@ PASS: All 6 skills verified across all client directories
 PASS: All content verified for universal English language
 
 All checks passed! Repository is 100% valid and verified.
+
+=== Running Multi-Agent Contract Simulation Tests ===
+PASS: Council Mode 1 sample conforms to pre-execution gate schema
+PASS: Council Mode 2 sample conforms to post-execution audit schema
+PASS: Valid terminal verification report passes gate
+PASS: Primary text contrast 18.33:1 exceeds WCAG AAA standard (7:1)
+PASS: Muted text contrast 7.48:1 meets WCAG AA standard (4.5:1)
+PASS: All spatial scale tokens strictly adhere to 8pt/4pt subgrid cadence
+PASS: Systematic debugging report conforms to 4-phase contract
+
+All agent contract simulation tests passed cleanly!
 ```
 
 ---

@@ -48,15 +48,32 @@ const rootFiles = [
   '.aider.conf.yml',
   '.aider/CONVENTIONS.md',
   '.github/copilot-instructions.md',
+  '.github/assets/banner.svg',
+  'bin/vibe-code-skills.js',
   'install.sh',
   'install.ps1',
   'README.md',
-  'LICENSE'
+  'LICENSE',
+  'test/validate.js',
+  'test/simulate-agent.js'
 ];
 
 rootFiles.forEach(file => {
   const filePath = path.join(ROOT, file);
   assert(fs.existsSync(filePath), `Root file exists: ${file}`);
+});
+
+console.log('\n--- 2b. Validating Concrete Walkthrough Examples ---');
+const exampleFiles = [
+  'examples/01-full-stack-task/task.md',
+  'examples/01-full-stack-task/council-review.md',
+  'examples/02-ui-ux-refactor/before-and-after.md',
+  'examples/03-systematic-debugging/investigation-report.md'
+];
+
+exampleFiles.forEach(file => {
+  const filePath = path.join(ROOT, file);
+  assert(fs.existsSync(filePath), `Example artifact exists: ${file}`);
 });
 
 console.log('\n--- 3. Validating Core Skills Structure & Frontmatter ---');
