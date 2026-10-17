@@ -15,6 +15,7 @@
 | Codebase mapping, symbol tracing, or exploration | `subagent-helper` | Mode 1: Exploration (Read-Only) |
 | Bug reproduction test generation | `subagent-helper` | Mode 2: Test Generation |
 | Mass formatting or repetitive schema migrations | `subagent-helper` | Mode 3: Mechanical Refactor |
+| UI/UX design, styling systems, accessibility audits | `ui-ux-pro-max` | Design Intelligence & A11y Engine |
 | Multi-task plan execution | `subagent-driven-development` | Orchestrator (Fresh Subagent per Task) |
 
 ## 3. Communication & State Sharing

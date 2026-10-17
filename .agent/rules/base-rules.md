@@ -12,6 +12,7 @@
 | Complex, ambiguous prompts, or multi-step specifications | `subagent-council` (Prompt Lens) | Before the first line of code is written |
 | Post-implementation audit, security review, or pre-commit checks | `subagent-council` (Project Lens) | After implementation and prior to closing |
 | Repository exploration, isolated test generation, mechanical refactoring | `subagent-helper` | Isolated computational tasks to preserve context window |
+| UI/UX design, visual hierarchy, styling, accessibility | `ui-ux-pro-max` | Any visual layout, component styling, or design system task |
 
 ## 3. Communication & State Sharing
 - Subagents do not use runtime message buses; inter-agent coordination is conducted via shared markdown tracking files (`task.md` or `plan.md`) and the primary orchestrator.

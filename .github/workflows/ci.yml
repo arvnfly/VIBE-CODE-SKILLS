@@ -27,6 +27,7 @@ jobs:
           test -f /tmp/test-dest/base-rules.md
           test -f /tmp/test-dest/skills/subagent-council/SKILL.md
           test -f /tmp/test-dest/.agent/skills/subagent-driven-development/SKILL.md
+          test -f /tmp/test-dest/skills/ui-ux-pro-max/SKILL.md
           test -f /tmp/test-dest/.cursor/rules/council.mdc
           rm -rf /tmp/test-dest
           echo "Installer test passed."

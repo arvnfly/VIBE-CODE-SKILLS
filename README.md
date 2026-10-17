@@ -9,7 +9,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/arvnfly/VIBE-CODE-SKILLS/pulls)
 [![Compatible With](https://img.shields.io/badge/Agents-Antigravity%20%7C%20Claude%20%7C%20Cursor%20%7C%20Codex%20%7C%20Windsurf%20%7C%20Copilot-orange.svg)](#supported-agents)
 
-*Zero external binaries. 100% portable markdown instructions, multi-lens review gates, and subagent isolation protocols.*
+*Zero external binaries. 100% portable markdown instructions, multi-lens review gates, design intelligence, and subagent isolation protocols.*
 
 ---
 
@@ -21,7 +21,7 @@
 
 ## Why VIBE-CODE Skills?
 
-Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf) fail predictably due to three structural pitfalls:
+Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsurf) fail predictably due to four structural pitfalls:
 
 | Common Failure Mode | Without Vibe-Code | With VIBE-CODE Skills |
 | :--- | :--- | :--- |
@@ -29,58 +29,60 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
 | **Context Pollution** | Reads entire codebase histories into the main context; hallucinations spike. | **Subagent Helpers**: Spawns isolated workers for read-only exploration and reproduction tests. |
 | **Premature Completion** | Claims *"I fixed the bug!"* based on conversational optimism without proof. | **Gated Verification**: Strict protocol forbidding task closure without terminal evidence (`exit code 0`). |
 | **Guesswork Debugging** | Applies random patches or wraps errors in empty `try/catch` blocks. | **Systematic Debugging**: Enforces a strict 4-phase root-cause investigation cycle before touching code. |
+| **Unstyled / Inaccessible UI** | Generates generic, inconsistent CSS with arbitrary spacing, unreadable contrast, and zero accessibility. | **UI/UX Pro Max Engine**: Enforces design systems, 8pt spatial grid, 60-30-10 palettes, fluid typography, and WCAG AA audits. |
 
 ---
 
 ## Architecture
 
 ```
-                                  [ USER REQUEST ]
-                                         │
-                                         ▼
-                     ┌───────────────────────────────────────┐
-                     │     PRE-EXECUTION COUNCIL GATE        │
-                     │  • Clarifier: Binary Criteria (Pass)  │
-                     │  • Skeptic: Edge Cases & Blast Radius │
-                     │  • Minimalist: YAGNI / Stdlib First   │
-                     └───────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                       ┌───────────────────────────────────┐
-                       │ SUBAGENT-DRIVEN DEVELOPMENT (SDD) │
-                       │    (Sequential Fresh Subagents)   │
-                       └─────────────────┬─────────────────┘
-                                         │
-                     ┌───────────────────┴───────────────────┐
-                     │                                       │
-                     ▼                                       ▼
-       ┌───────────────────────────┐           ┌───────────────────────────┐
-       │   SUBAGENT-HELPER WORKER  │           │   SYSTEMATIC DEBUGGING    │
-       │  • Read-Only Symbol Map   │           │  1. Reproduce (100%)      │
-       │  • Isolated Test Scripts  │           │  2. Trace to Origin       │
-       │  • Mechanical Refactors   │           │  3. Form Hypothesis       │
-       └─────────────┬─────────────┘           │  4. Minimal Targeted Patch│
-                     │                         └─────────────┬─────────────┘
-                     └───────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                     ┌───────────────────────────────────────┐
-                     │       GATED VERIFICATION BARRIER      │
-                     │  • Real terminal execution required   │
-                     │  • Exit code MUST be 0                │
-                     │  • Evidence logged before completion  │
-                     └───────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                     ┌───────────────────────────────────────┐
-                     │    POST-EXECUTION COUNCIL AUDIT       │
-                     │  • Correctness: Criteria verified     │
-                     │  • Security: Sanitization & leaks     │
-                     │  • Architecture: Diff hygiene         │
-                     └───────────────────┬───────────────────┘
-                                         │
-                                         ▼
-                             [ VERIFIED DELIVERABLE ]
+                                      [ USER REQUEST ]
+                                             │
+                                             ▼
+                         ┌───────────────────────────────────────┐
+                         │     PRE-EXECUTION COUNCIL GATE        │
+                         │  • Clarifier: Binary Criteria (Pass)  │
+                         │  • Skeptic: Edge Cases & Blast Radius │
+                         │  • Minimalist: YAGNI / Stdlib First   │
+                         └───────────────────┬───────────────────┘
+                                             │
+                                             ▼
+                           ┌───────────────────────────────────┐
+                           │ SUBAGENT-DRIVEN DEVELOPMENT (SDD) │
+                           │    (Sequential Fresh Subagents)   │
+                           └─────────────────┬─────────────────┘
+                                             │
+                         ┌───────────────────┼───────────────────┐
+                         │                   │                   │
+                         ▼                   ▼                   ▼
+           ┌───────────────────────────┐   ┌───────────────────────────┐   ┌───────────────────────────┐
+           │   SUBAGENT-HELPER WORKER  │   │   SYSTEMATIC DEBUGGING    │   │      UI/UX PRO MAX        │
+           │  • Read-Only Symbol Map   │   │  1. Reproduce (100%)      │   │  • Design Systems & Tokens│
+           │  • Isolated Test Scripts  │   │  2. Trace to Origin       │   │  • Responsive Layouts     │
+           │  • Mechanical Refactors   │   │  3. Form Hypothesis       │   │  • WCAG 2.2 AA Audits     │
+           │                           │   │  4. Minimal Targeted Patch│   │  • Micro-Interactions     │
+           └─────────────┬─────────────┘   └─────────────┬─────────────┘   └─────────────┬─────────────┘
+                         │                               │                               │
+                         └───────────────────────────────┼───────────────────────────────┘
+                                                         │
+                                                         ▼
+                         ┌───────────────────────────────────────┐
+                         │       GATED VERIFICATION BARRIER      │
+                         │  • Real terminal execution required   │
+                         │  • Exit code MUST be 0                │
+                         │  • Evidence logged before completion  │
+                         └───────────────────┬───────────────────┘
+                                             │
+                                             ▼
+                         ┌───────────────────────────────────────┐
+                         │    POST-EXECUTION COUNCIL AUDIT       │
+                         │  • Correctness: Criteria verified     │
+                         │  • Security: Sanitization & leaks     │
+                         │  • Architecture: Diff hygiene         │
+                         └───────────────────┬───────────────────┘
+                                             │
+                                             ▼
+                                 [ VERIFIED DELIVERABLE ]
 ```
 
 ---
@@ -146,6 +148,11 @@ All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML
 - 4-phase investigation protocol: **Reproduce** &rarr; **Trace** &rarr; **Hypothesize** &rarr; **Minimal Fix**.
 - Strictly prohibits speculative guessing or suppressing exceptions.
 
+### 6. `ui-ux-pro-max`
+*Location: `skills/ui-ux-pro-max/SKILL.md`*
+- Complete design intelligence engine for web, mobile, and desktop interfaces.
+- Design systems, 8pt spatial grid, semantic color tokens (60-30-10 distribution rule), fluid typography scales, visual archetype selection matrix (Clean SaaS, Bento Grid, Dark Mode, Neo-Brutalism), responsive breakpoints, micro-interactions, and WCAG 2.2 AA accessibility pre-flight audits.
+
 ---
 
 ## Supported Agents
@@ -199,7 +206,7 @@ PASS: .omp/plugin.json is valid JSON
 PASS: All platform rules and entrypoints exist
 
 --- 3. Validating Core Skills Structure & Frontmatter ---
-PASS: All 5 skills verified across all client directories
+PASS: All 6 skills verified across all client directories
 
 --- 4. Checking Clean Universal English ---
 PASS: All content verified for universal English language

@@ -9,3 +9,4 @@ Include base rules:
 - `subagent-driven-development`: Sequential task execution with inter-task review gates.
 - `verification-before-completion`: Gated command verification prior to task closure.
 - `systematic-debugging`: 4-phase root-cause investigation prior to modifications.
+- `ui-ux-pro-max`: Design intelligence, styling systems, responsive layouts, and accessibility audits.

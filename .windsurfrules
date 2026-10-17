@@ -6,3 +6,4 @@
 - **Helper**: Perform codebase search, standalone test generation, and mechanical refactors in isolated context.
 - **Verification Gate**: No completion claims without terminal execution evidence and exit code 0.
 - **Systematic Debugging**: Reproduce, trace, hypothesize, and apply minimal fixes.
+- **UI/UX Pro Max**: Design systems, styling tokens, responsive layout, and accessibility audits.

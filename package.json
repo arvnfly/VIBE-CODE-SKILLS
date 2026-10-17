@@ -20,7 +20,9 @@
     "codex",
     "gemini",
     "aider",
-    "copilot"
+    "copilot",
+    "ui-ux",
+    "design-system"
   ],
   "author": "rayz <raiztzy15@gmail.com>",
   "license": "MIT",

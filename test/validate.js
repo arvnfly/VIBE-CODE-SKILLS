@@ -65,7 +65,8 @@ const skills = [
   'subagent-helper',
   'subagent-driven-development',
   'systematic-debugging',
-  'verification-before-completion'
+  'verification-before-completion',
+  'ui-ux-pro-max'
 ];
 
 const targetDirs = ['skills', '.agent/skills', '.claude/skills', '.omp/skills'];
