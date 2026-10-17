@@ -1,0 +1,11 @@
+---
+description: Universal Council and Helper guidelines for Cursor
+globs: *
+alwaysApply: true
+---
+# Cursor Multi-Agent Directive
+
+Ikuti aturan di `base-rules.md`:
+1. **Council Mode**: Evaluasi prompt dengan lensa Clarifier, Skeptic, Minimalist. Audit project dengan lensa Correctness, Security, Architecture.
+2. **Helper Mode**: Isolasi tugas pencarian kode, pembuatan test, dan refactor mekanikal.
+3. **Gated Verification**: Wajib menjalankan command verifikasi terminal dan memperoleh exit code 0 sebelum menyatakan tugas selesai.

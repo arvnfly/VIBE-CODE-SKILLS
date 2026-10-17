@@ -1,0 +1,13 @@
+{
+  "name": "vibe-code-skills",
+  "description": "Council review, helper workers, and superpowers-driven workflow skills for Claude Code",
+  "version": "1.0.0",
+  "keywords": [
+    "skills",
+    "council",
+    "helper",
+    "sdd",
+    "verification",
+    "superpowers"
+  ]
+}

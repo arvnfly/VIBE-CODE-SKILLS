@@ -1,0 +1,6 @@
+# Aider configuration
+read:
+  - base-rules.md
+  - .aider/CONVENTIONS.md
+auto-commits: false
+attribute-author: false

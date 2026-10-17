@@ -1,0 +1,7 @@
+# Windsurf Global Rules
+<!-- include: base-rules.md -->
+
+## Sub-Agent Protocols
+- **Council**: Review prompt sebelum eksekusi (Clarifier, Skeptic, Minimalist) dan audit hasil kerja (Correctness, Security, Architecture).
+- **Helper**: Jalankan tugas pencarian kode, pembuatan test kasus mandiri, dan refactor mekanikal dalam konteks terisolasi.
+- **Verification Gate**: Tidak ada klaim selesai tanpa bukti output perintah verifikasi dan exit code 0.

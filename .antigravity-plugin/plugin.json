@@ -1,0 +1,15 @@
+{
+  "name": "vibe-code-skills",
+  "displayName": "vibe-code skills (Council & Helper)",
+  "version": "1.0.0",
+  "description": "Council review, helper workers, and superpowers-driven workflow skills for Antigravity, Claude Code, and Oh My Pi",
+  "category": "Developer Tools",
+  "keywords": [
+    "skills",
+    "council",
+    "helper",
+    "sdd",
+    "verification",
+    "superpowers"
+  ]
+}

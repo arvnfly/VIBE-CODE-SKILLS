@@ -1,0 +1,7 @@
+{
+  "name": "vibe-code-skills",
+  "version": "1.0.0",
+  "description": "Council review, helper workers, and superpowers workflow skills for Gemini CLI",
+  "contextFileName": "GEMINI.md",
+  "skillsDir": "skills"
+}

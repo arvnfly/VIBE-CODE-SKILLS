@@ -1,0 +1,9 @@
+# Cursor Universal Rules
+# Include base rules
+<!-- include: base-rules.md -->
+
+## Active Skills & Agents
+- `subagent-council`: Review prompt before coding and review project before closing.
+- `subagent-helper`: Offload isolated search, test generation, and refactoring.
+- `subagent-driven-development`: Dispatch task-by-task execution.
+- `verification-before-completion`: Gated command check (exit code 0 required).

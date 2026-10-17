@@ -1,0 +1,20 @@
+{
+  "name": "vibe-code-skills",
+  "version": "1.0.0",
+  "description": "Multi-agent council, verification gates, and isolated helper skills for Antigravity, Claude Code, Oh My Pi, Codex, Cursor, Windsurf, Aider, and Copilot",
+  "keywords": [
+    "agent-skills",
+    "vibe-code",
+    "council",
+    "helper",
+    "antigravity",
+    "claude-code",
+    "oh-my-pi",
+    "codex",
+    "cursor",
+    "windsurf",
+    "aider",
+    "copilot"
+  ],
+  "license": "MIT"
+}
