@@ -164,42 +164,93 @@ git clone https://github.com/arvnfly/VIBE-CODE-SKILLS.git
 
 ---
 
-## Core Skills
+## All-in-One Skills Suite (11 Core Skills)
 
-All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML frontmatter.
+All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML frontmatter, organized across four full-stack pillars:
 
-### 1. `subagent-council`
+### Pillar 1: Multi-Agent Process & Verification Gates
+
+#### 1. `subagent-council`
 *Location: `skills/subagent-council/SKILL.md`*
-- **Mode 1: Prompt Review (Pre-Execution Gate)**: Dissects complex instructions into measurable acceptance criteria using **Clarifier**, **Skeptic**, and **Minimalist** lenses.
+- **Mode 1: Prompt Review (Pre-Execution Gate)**: Dissects complex user instructions into measurable acceptance criteria using **Clarifier**, **Skeptic**, and **Minimalist** lenses.
 - **Mode 2: Project Review (Post-Execution Audit)**: Audits resulting code diffs against **Correctness**, **Security**, and **Architecture** before work is closed.
 
-### 2. `subagent-helper`
+#### 2. `subagent-helper`
 *Location: `skills/subagent-helper/SKILL.md`*
-- **Exploration (Read-Only)**: Offloads symbol lookup and file inspection to keep the main agent's context clean.
-- **Isolated Test Generation**: Writes standalone reproduction test scripts without modifying production code.
+- **Exploration (Read-Only)**: Offloads symbol lookup, file scans, and AST inspection to keep the main agent's context clean.
+- **Isolated Test Generation**: Writes standalone reproduction test scripts without modifying production files.
 - **Mechanical Refactoring**: Executes repetitive batch formatting, schema renaming, or migrations.
 
-### 3. `subagent-driven-development`
+#### 3. `subagent-driven-development`
 *Location: `skills/subagent-driven-development/SKILL.md`*
 - Dispatches fresh, isolated subagents per task to eliminate context degradation.
 - Enforces council review gates between individual tasks.
 - Promotes continuous autonomous execution without trivial interruptions.
 
-### 4. `verification-before-completion`
+#### 4. `verification-before-completion`
 *Location: `skills/verification-before-completion/SKILL.md`*
 - **Absolute Rule**: Evidence before assertions.
 - Requires literal terminal command logs with `exit code 0` (compiler, test suite, or linter).
 - Zero tolerance for conversational claims of success without verifiable proof.
 
-### 5. `systematic-debugging`
+---
+
+### Pillar 2: Diagnostics & Interface Design
+
+#### 5. `systematic-debugging`
 *Location: `skills/systematic-debugging/SKILL.md`*
 - 4-phase investigation protocol: **Reproduce** &rarr; **Trace** &rarr; **Hypothesize** &rarr; **Minimal Fix**.
-- Strictly prohibits speculative guessing or suppressing exceptions.
+- Strictly prohibits speculative guessing, random patches, or suppressing exceptions.
 
-### 6. `ui-ux`
+#### 6. `ui-ux`
 *Location: `skills/ui-ux/SKILL.md`*
 - Complete design intelligence engine for web, mobile, and desktop interfaces.
 - Design systems, 8pt spatial grid, semantic color tokens (60-30-10 distribution rule), fluid typography scales, visual archetype selection matrix (Clean SaaS, Bento Grid, Dark Mode, Neo-Brutalism), responsive breakpoints, micro-interactions, and WCAG 2.2 AA accessibility pre-flight audits.
+
+---
+
+### Pillar 3: Backend, API & Data Engineering
+
+#### 7. `api-design`
+*Location: `skills/api-design/SKILL.md`*
+- Production standards for RESTful APIs, plural resource URIs, and HTTP method semantics.
+- Standardized RFC 7807 problem details error envelopes for all 4xx/5xx responses.
+- Cursor-based pagination protocols for high-velocity datasets and offset pagination for admin views.
+- Idempotency key headers (`Idempotency-Key`) for safe mutation replays.
+- Strict schema validation at trust boundaries (Zod, Pydantic, OpenAPI).
+
+#### 8. `database-architect`
+*Location: `skills/database-architect/SKILL.md`*
+- Zero-downtime database migration lifecycle: Additive &rarr; Backfill &rarr; Dual-Write &rarr; Contract.
+- Composite index optimization enforcing the Equality-Range-Sort column ordering rule.
+- Query optimization, `EXPLAIN ANALYZE` inspection, and complete N+1 query eradication.
+- ACID transaction hygiene: Short transactions, optimistic locking with version columns, and zero external I/O inside transaction blocks.
+
+---
+
+### Pillar 4: Security, Delivery & Performance
+
+#### 9. `security-hardener`
+*Location: `skills/security-hardener/SKILL.md`*
+- Zero-leak secret protection: Enforces pre-commit patterns for API keys, PATs, and private keys.
+- Injection defense: Mandatory parameterised queries and zero shell string interpolation.
+- Timing attack mitigation: Enforces constant-time cryptographic comparison (`crypto.timingSafeEqual`).
+- SSRF loopback/private IP denylisting and CSRF `SameSite` cookie defenses.
+- Core security header checklist: CSP, HSTS, X-Content-Type-Options, X-Frame-Options.
+
+#### 10. `git-workflow`
+*Location: `skills/git-workflow/SKILL.md`*
+- Atomic commit discipline: Exactly one logical change per commit without breaking the build.
+- Conventional Commits standard (`feat`, `fix`, `refactor`, `perf`, `test`, `docs`, `chore`).
+- Linear history maintenance with rebase strategy and ephemeral commit squashing.
+- Pull request hygiene: Required summaries, motivation, verification evidence, and blast radius.
+
+#### 11. `performance-profiler`
+*Location: `skills/performance-profiler/SKILL.md`*
+- Core Web Vitals thresholds: LCP (`<= 2.5s`), INP (`<= 200ms`), CLS (`<= 0.1`).
+- 4-step memory leak diagnostic protocol and heap snapshot comparison.
+- Multi-tier caching architecture: L1 in-memory, L2 distributed Redis, and Stale-While-Revalidate headers.
+- Bundle optimization: Tree-shaking hygiene, dynamic code splitting, and modern compression.
 
 ---
 

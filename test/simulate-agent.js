@@ -144,6 +144,40 @@ const debugContent = fs.readFileSync(debugArtifactPath, 'utf8');
 
 assert(validateDebuggingReport(debugContent), 'Systematic debugging report conforms to 4-phase contract');
 
+// 6. API Design RFC 7807 Error Envelope Contract Validator
+console.log('\n--- 6. Testing api-design RFC 7807 Error Envelope Contract ---');
+function validateRFC7807Error(payload) {
+  return payload &&
+    typeof payload.error === 'object' &&
+    typeof payload.error.type === 'string' &&
+    typeof payload.error.title === 'string' &&
+    typeof payload.error.status === 'number' &&
+    typeof payload.error.detail === 'string';
+}
+
+const sampleError = {
+  error: {
+    type: 'https://api.example.com/errors/not-found',
+    title: 'Resource Not Found',
+    status: 404,
+    detail: 'User with ID usr_123 does not exist.'
+  }
+};
+assert(validateRFC7807Error(sampleError), 'Valid RFC 7807 error payload adheres to contract');
+assert(!validateRFC7807Error({ message: 'Error' }), 'Non-compliant error payload is rejected');
+
+// 7. Security Hardening Timing-Safe Secret Validation
+console.log('\n--- 7. Testing security-hardener Timing-Safe Verification ---');
+const crypto = require('crypto');
+function timingSafeCheck(a, b) {
+  const bufA = Buffer.from(a);
+  const bufB = Buffer.from(b);
+  if (bufA.length !== bufB.length) return false;
+  return crypto.timingSafeEqual(bufA, bufB);
+}
+assert(timingSafeCheck('secret_token_123', 'secret_token_123') === true, 'Matching tokens authenticate securely');
+assert(timingSafeCheck('secret_token_123', 'secret_token_456') === false, 'Mismatched tokens are rejected');
+
 // Final assessment
 console.log('\n======================================================');
 if (testErrors > 0) {

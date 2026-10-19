@@ -85,7 +85,12 @@ const skills = [
   'subagent-driven-development',
   'systematic-debugging',
   'verification-before-completion',
-  'ui-ux'
+  'ui-ux',
+  'api-design',
+  'database-architect',
+  'security-hardener',
+  'git-workflow',
+  'performance-profiler'
 ];
 
 const targetDirs = ['skills', '.agent/skills', '.claude/skills', '.omp/skills'];

@@ -116,7 +116,12 @@ const CORE_SKILLS = [
   { name: 'subagent-driven-development', desc: 'Sequential isolated subagents with review gates' },
   { name: 'systematic-debugging', desc: '4-phase root cause investigation protocol (Reproduce > Trace > Hypothesize > Fix)' },
   { name: 'verification-before-completion', desc: 'Evidence barrier requiring terminal execution with exit code 0' },
-  { name: 'ui-ux', desc: 'Design intelligence engine (8pt grid, 60-30-10 palette, WCAG AA audits)' }
+  { name: 'ui-ux', desc: 'Design intelligence engine (8pt grid, 60-30-10 palette, WCAG AA audits)' },
+  { name: 'api-design', desc: 'Standards for RESTful APIs, RFC 7807 problem details, pagination, and schema contracts' },
+  { name: 'database-architect', desc: 'Schema modeling, zero-downtime migrations, composite index ordering, and ACID transactions' },
+  { name: 'security-hardener', desc: 'OWASP Top 10 defense, zero secret leakage, timing-safe crypto comparisons, and SSRF/CSRF mitigation' },
+  { name: 'git-workflow', desc: 'Atomic commits, Conventional Commits formatting, clean branch lifecycles, and PR hygiene' },
+  { name: 'performance-profiler', desc: 'Core Web Vitals (LCP, INP, CLS), memory leak diagnostics, CPU profiling, and caching' }
 ];
 
 // File Utility Helpers
