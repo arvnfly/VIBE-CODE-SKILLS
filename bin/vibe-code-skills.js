@@ -388,7 +388,7 @@ function runDoctor(targetDir) {
 // Command: List
 function runList() {
   printBanner();
-  console.log(`${c.bold}Available Core Skills (6):${c.reset}`);
+  console.log(`${c.bold}Available Core Skills (${CORE_SKILLS.length}):${c.reset}`);
   CORE_SKILLS.forEach((s, idx) => {
     console.log(`  ${idx + 1}. ${c.green}${c.bold}${s.name}${c.reset}`);
     console.log(`     ${c.dim}${s.desc}${c.reset}`);
