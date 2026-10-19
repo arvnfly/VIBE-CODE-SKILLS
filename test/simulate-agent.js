@@ -178,6 +178,24 @@ function timingSafeCheck(a, b) {
 assert(timingSafeCheck('secret_token_123', 'secret_token_123') === true, 'Matching tokens authenticate securely');
 assert(timingSafeCheck('secret_token_123', 'secret_token_456') === false, 'Mismatched tokens are rejected');
 
+// 8. Comment Minimizer Contract & Clean Code Filter
+console.log('\n--- 8. Testing comment-minimizer Heuristic Filter ---');
+function hasNoisyComments(codeString) {
+  const noisyPatterns = [
+    /\/\/\s*(increment|set|get|return|loop|check if|call|declare|init|variable|function)\b/i,
+    /#\s*(increment|set|get|return|loop|check if|call|declare|init|variable|function)\b/i
+  ];
+  return noisyPatterns.some(p => p.test(codeString));
+}
+
+const noisyCode = 'i++; // increment i';
+const cleanCode = 'const isAdult = user.age >= 18;';
+const rationaleComment = '// Rationale: Upstream issue #42 requires explicit 100ms grace period';
+
+assert(hasNoisyComments(noisyCode) === true, 'Noisy redundant comment detected by heuristic filter');
+assert(hasNoisyComments(cleanCode) === false, 'Clean self-documenting code passes filter');
+assert(hasNoisyComments(rationaleComment) === false, 'Non-obvious architectural rationale comment passes filter');
+
 // Final assessment
 console.log('\n======================================================');
 if (testErrors > 0) {

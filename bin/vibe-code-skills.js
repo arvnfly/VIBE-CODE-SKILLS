@@ -110,55 +110,27 @@ const CLIENTS = {
   }
 };
 
-const CORE_SKILLS = [
-  // Pillar 1: Multi-Agent Orchestration & Process
-  { name: 'subagent-council', desc: 'Pre-execution gate (Mode 1) & post-execution audit (Mode 2)' },
-  { name: 'subagent-helper', desc: 'Isolated worker protocols for read-only symbol map and reproduction tests' },
-  { name: 'subagent-driven-development', desc: 'Sequential isolated subagents with review gates' },
-  { name: 'verification-before-completion', desc: 'Evidence barrier requiring terminal execution with exit code 0' },
-  
-  // Pillar 2: Architecture & System Design
-  { name: 'system-architect', desc: 'High-level system design, DDD boundaries, C4 models, and ADR records' },
-  { name: 'api-design', desc: 'Standards for RESTful APIs, RFC 7807 error details, pagination, and schema contracts' },
-  { name: 'database-architect', desc: 'Schema modeling, zero-downtime migrations, composite index ordering, and ACID transactions' },
-  { name: 'microservices-orchestrator', desc: 'Event-driven architecture, distributed sagas, outbox pattern, and DLQs' },
+function loadCoreSkills() {
+  const skillsDir = path.join(rootDir, 'skills');
+  if (!fs.existsSync(skillsDir)) return [];
+  const entries = fs.readdirSync(skillsDir, { withFileTypes: true });
+  const list = [];
+  for (const entry of entries) {
+    if (entry.isDirectory()) {
+      const skillFile = path.join(skillsDir, entry.name, 'SKILL.md');
+      let desc = 'Specialized agent protocol and skill';
+      if (fs.existsSync(skillFile)) {
+        const content = fs.readFileSync(skillFile, 'utf8');
+        const match = content.match(/description:\s*["']?([^"'\n]+)/i);
+        if (match) desc = match[1].trim();
+      }
+      list.push({ name: entry.name, desc });
+    }
+  }
+  return list.sort((a, b) => a.name.localeCompare(b.name));
+}
 
-  // Pillar 3: Frontend & User Interface
-  { name: 'ui-ux', desc: 'Design intelligence engine (8pt grid, 60-30-10 palette, WCAG AA audits)' },
-  { name: 'accessibility-a11y', desc: 'Web accessibility, ARIA role mapping, focus traps, and WCAG 2.2 AA/AAA' },
-  { name: 'css-architect', desc: 'Maintainable CSS, container queries, fluid tokens, and layout shift prevention' },
-  { name: 'state-management', desc: 'Client-side state, normalized stores, selector memoization, and race condition prevention' },
-
-  // Pillar 4: Diagnostics & Reliability
-  { name: 'systematic-debugging', desc: '4-phase root cause investigation protocol (Reproduce > Trace > Hypothesize > Fix)' },
-  { name: 'performance-profiler', desc: 'Core Web Vitals (LCP, INP, CLS), memory leak diagnostics, and caching' },
-  { name: 'incident-commander', desc: 'Production incident triage, severity assessment, and blameless post-mortems' },
-  { name: 'chaos-engineering', desc: 'Resilience engineering, circuit breakers, and graceful degradation' },
-
-  // Pillar 5: Security & Compliance
-  { name: 'security-hardener', desc: 'OWASP Top 10 defense, zero secret leakage, timing-safe crypto, and SSRF/CSRF mitigation' },
-  { name: 'auth-security', desc: 'JWT lifecycle, OAuth 2.1 / OIDC flows, PKCE, and RBAC/ABAC authorization' },
-  { name: 'penetration-tester', desc: 'Security testing, SAST/DAST audits, CVE scans, and offensive exploit prevention' },
-  { name: 'data-privacy-compliance', desc: 'GDPR/CCPA PII handling, data sanitization, and immutable audit logs' },
-
-  // Pillar 6: Quality Assurance & Testing
-  { name: 'test-driven-development', desc: 'TDD cycle (Red-Green-Refactor), test isolation, and behavioral assertion' },
-  { name: 'e2e-playwright', desc: 'End-to-end browser automation with Playwright and accessible locators' },
-  { name: 'mocking-strategy', desc: 'In-memory fakes, Mock Service Worker (MSW), and preventing mock drift' },
-  { name: 'mutation-testing', desc: 'Mutation testing protocols, mutant survival analysis, and killing false-positives' },
-
-  // Pillar 7: DevOps, CI/CD & Containers
-  { name: 'git-workflow', desc: 'Atomic commits, Conventional Commits formatting, linear rebase, and PR hygiene' },
-  { name: 'docker-optimizer', desc: 'Multi-stage Docker builds, minimal non-root packaging, and layer caching' },
-  { name: 'ci-cd-pipeline', desc: 'CI/CD pipeline architecture, matrix builds, automated gates, and rollback triggers' },
-  { name: 'kubernetes-manifest', desc: 'Production K8s manifests, resource limits/requests, PDBs, and health probes' },
-
-  // Pillar 8: Data Engineering & Observability
-  { name: 'observability-telemetry', desc: 'Structured JSON logging, OpenTelemetry distributed tracing, and Prometheus metrics' },
-  { name: 'cache-architect', desc: 'Redis architectural patterns, cache-aside, and cache stampede prevention (XFetch)' },
-  { name: 'documentation-architect', desc: 'Technical documentation architecture, the Diataxis framework, and runnable snippets' },
-  { name: 'code-refactoring', desc: 'Martin Fowler refactoring catalog, cyclomatic complexity reduction, and boy scout rule' }
-];
+const CORE_SKILLS = loadCoreSkills();
 
 // File Utility Helpers
 function ensureDir(dirPath, dryRun = false) {

@@ -79,57 +79,38 @@ exampleFiles.forEach(file => {
 });
 
 console.log('\n--- 3. Validating Core Skills Structure & Frontmatter ---');
-const skills = [
-  'accessibility-a11y',
-  'api-design',
-  'auth-security',
-  'cache-architect',
-  'chaos-engineering',
-  'ci-cd-pipeline',
-  'code-refactoring',
-  'css-architect',
-  'data-privacy-compliance',
-  'database-architect',
-  'docker-optimizer',
-  'documentation-architect',
-  'e2e-playwright',
-  'git-workflow',
-  'incident-commander',
-  'kubernetes-manifest',
-  'microservices-orchestrator',
-  'mocking-strategy',
-  'mutation-testing',
-  'observability-telemetry',
-  'penetration-tester',
-  'performance-profiler',
-  'security-hardener',
-  'state-management',
-  'subagent-council',
-  'subagent-driven-development',
-  'subagent-helper',
-  'system-architect',
-  'systematic-debugging',
-  'test-driven-development',
-  'ui-ux',
-  'verification-before-completion'
-];
+const skills = fs.readdirSync(path.join(ROOT, 'skills')).filter(name => {
+  return fs.statSync(path.join(ROOT, 'skills', name)).isDirectory();
+});
+
+assert(skills.length >= 100, `Repository contains at least 100 skills (Found: ${skills.length})`);
+assert(skills.includes('comment-minimizer'), 'comment-minimizer skill exists');
 
 const targetDirs = ['skills', '.agent/skills', '.claude/skills', '.omp/skills'];
 
+let missingCount = 0;
 targetDirs.forEach(dir => {
   skills.forEach(skill => {
     const skillPath = path.join(ROOT, dir, skill, 'SKILL.md');
     const exists = fs.existsSync(skillPath);
-    assert(exists, `${dir}/${skill}/SKILL.md exists`);
-    if (exists) {
+    if (!exists) {
+      assert(false, `${dir}/${skill}/SKILL.md exists`);
+      missingCount++;
+    } else {
       const content = fs.readFileSync(skillPath, 'utf8');
       const hasName = content.includes(`name: ${skill}`);
       const hasDescription = content.includes('description:');
-      assert(hasName, `${dir}/${skill}/SKILL.md has matching name`);
-      assert(hasDescription, `${dir}/${skill}/SKILL.md has description`);
+      if (!hasName || !hasDescription) {
+        assert(false, `${dir}/${skill}/SKILL.md has valid frontmatter`);
+        missingCount++;
+      }
     }
   });
 });
+
+if (missingCount === 0) {
+  assert(true, `All ${skills.length} skills verified across all client directories (${skills.length * targetDirs.length} manifests)`);
+}
 
 console.log('\n--- 4. Checking Clean Universal English ---');
 const forbiddenPattern = /\b(dan|atau|adalah|yang|untuk|dengan|pada|wajib|jangan|tugas|rencana|tahap|akar|bukti|laporan)\b/i;

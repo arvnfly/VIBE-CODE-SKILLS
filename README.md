@@ -164,44 +164,31 @@ git clone https://github.com/arvnfly/VIBE-CODE-SKILLS.git
 
 ---
 
-## All-in-One Skills Suite (32 Specialized Subagent Skills)
+## All-in-One Skills Suite (150 Specialized Skills)
 
-All 32 skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML frontmatter, organized across eight specialized engineering pillars:
+The repository provides an All-in-One catalog of **150 production-grade agent skills** formatted as standard `SKILL.md` manifests with valid YAML frontmatter. Every skill is token-optimized (30-50 lines of dense rules and patterns rather than bloated prose), mirrored across all agent environments (`skills/`, `.agent/skills/`, `.claude/skills/`, `.omp/skills/`).
 
-| Pillar | Subagent Skill | Location | Core Function |
-| :--- | :--- | :--- | :--- |
-| **1. Multi-Agent Process** | `subagent-council` | `skills/subagent-council/` | Pre-execution gate (Mode 1) & post-execution diff audit (Mode 2) |
-| | `subagent-helper` | `skills/subagent-helper/` | Isolated workers for read-only symbol exploration & test generation |
-| | `subagent-driven-development` | `skills/subagent-driven-development/` | Sequential fresh subagents with review gates between tasks |
-| | `verification-before-completion` | `skills/verification-before-completion/` | Terminal evidence barrier requiring literal `exit code 0` proof |
-| **2. Architecture & Design** | `system-architect` | `skills/system-architect/` | High-level system design, DDD bounded contexts, C4 models, and ADRs |
-| | `api-design` | `skills/api-design/` | RESTful standards, RFC 7807 error envelopes, cursor pagination, idempotency |
-| | `database-architect` | `skills/database-architect/` | Zero-downtime migrations, composite index ordering, and ACID transactions |
-| | `microservices-orchestrator` | `skills/microservices-orchestrator/` | Event-driven architecture, distributed sagas, outbox pattern, and DLQs |
-| **3. Frontend & UI** | `ui-ux` | `skills/ui-ux/` | Design intelligence engine (8pt grid, 60-30-10 palette, WCAG AA audits) |
-| | `accessibility-a11y` | `skills/accessibility-a11y/` | Web accessibility, ARIA role mapping, focus traps, and WCAG 2.2 AA/AAA |
-| | `css-architect` | `skills/css-architect/` | Maintainable CSS, container queries, fluid tokens, and layout shift (CLS) prevention |
-| | `state-management` | `skills/state-management/` | Client-side state, normalized stores, selector memoization, and race prevention |
-| **4. Diagnostics & Reliability** | `systematic-debugging` | `skills/systematic-debugging/` | 4-phase root cause investigation (Reproduce > Trace > Hypothesize > Fix) |
-| | `performance-profiler` | `skills/performance-profiler/` | Core Web Vitals (LCP, INP, CLS), heap memory diagnostics, multi-tier caching |
-| | `incident-commander` | `skills/incident-commander/` | Production incident triage, severity assessment, and blameless post-mortems |
-| | `chaos-engineering` | `skills/chaos-engineering/` | Resilience engineering, circuit breakers, retry with backoff & jitter |
-| **5. Security & Compliance** | `security-hardener` | `skills/security-hardener/` | OWASP Top 10 defense, zero secret leakage, timing-safe crypto, SSRF/CSRF |
-| | `auth-security` | `skills/auth-security/` | JWT lifecycle, OAuth 2.1 / OIDC flows, PKCE, and RBAC/ABAC authorization |
-| | `penetration-tester` | `skills/penetration-tester/` | Security testing, SAST/DAST audits, CVE scans, and offensive exploit prevention |
-| | `data-privacy-compliance` | `skills/data-privacy-compliance/` | GDPR/CCPA PII handling, data sanitization, and immutable audit logs |
-| **6. QA & Testing** | `test-driven-development` | `skills/test-driven-development/` | TDD cycle (Red-Green-Refactor), test isolation, and behavioral assertion |
-| | `e2e-playwright` | `skills/e2e-playwright/` | End-to-end browser automation with Playwright and accessible locators |
-| | `mocking-strategy` | `skills/mocking-strategy/` | In-memory fakes, Mock Service Worker (MSW), and preventing mock drift |
-| | `mutation-testing` | `skills/mutation-testing/` | Mutation testing protocols, mutant survival analysis, and killing false-positives |
-| **7. DevOps & CI/CD** | `git-workflow` | `skills/git-workflow/` | Atomic commits, Conventional Commits formatting, linear rebase, PR hygiene |
-| | `docker-optimizer` | `skills/docker-optimizer/` | Multi-stage Docker builds, minimal non-root packaging, and layer caching |
-| | `ci-cd-pipeline` | `skills/ci-cd-pipeline/` | CI/CD pipeline architecture, matrix builds, automated gates, and rollbacks |
-| | `kubernetes-manifest` | `skills/kubernetes-manifest/` | Production K8s manifests, resource limits/requests, PDBs, and health probes |
-| **8. Data & Observability** | `observability-telemetry` | `skills/observability-telemetry/` | Structured JSON logging, OpenTelemetry distributed tracing, Prometheus metrics |
-| | `cache-architect` | `skills/cache-architect/` | Redis architectural patterns, cache-aside, and cache stampede prevention (XFetch) |
-| | `documentation-architect` | `skills/documentation-architect/` | Technical documentation architecture, the Diataxis framework, runnable snippets |
-| | `code-refactoring` | `skills/code-refactoring/` | Martin Fowler refactoring catalog, cyclomatic complexity reduction, boy scout rule |
+### Highlight: Comment Minimizer (`comment-minimizer`)
+Enforces self-documenting code by eliminating noise comments (`//`, `#`, `/* */`):
+- **Banned**: Comments explaining *what* code does (`// set x to 1`, `# fetch user from db`, `// return result`).
+- **Required**: Express intent through descriptive identifier naming and extraction into well-named functions.
+- **Allowed Exception Only**: Non-obvious architectural rationale, upstream vendor bug workarounds, or complex math/regex formulas.
+
+### 11 Engineering Pillars (150 Skills Breakdown)
+
+| Domain | Skills Count | Key Skills Included |
+| :--- | :--- | :--- |
+| **1. Multi-Agent & Process** | 5 skills | `subagent-council`, `subagent-helper`, `subagent-driven-development`, `verification-before-completion`, `systematic-debugging` |
+| **2. Code Hygiene & Minimizing** | 5 skills | `comment-minimizer`, `variable-naming-standards`, `dead-code-elimination`, `cyclomatic-complexity-reduction`, `error-handling-patterns` |
+| **3. Frontend & UI Engineering** | 18 skills | `ui-ux`, `accessibility-a11y`, `accessibility-testing-axe`, `css-architect`, `state-management`, `react-expert`, `nextjs-app-router`, `vue-composition-api`, `nuxt-fullstack`, `svelte-runes`, `angular-signals`, `tailwind-v4`, `core-web-vitals-optimizer`, `responsive-design`, `animation-framer-motion`, `canvas-webgl`, `web-components`, `pwa-service-worker` |
+| **4. Backend & Languages** | 20 skills | `nodejs-backend`, `python-fastapi`, `python-django`, `golang-concurrency`, `rust-memory-safety`, `java-spring-boot`, `csharp-dotnet-core`, `cplusplus-modern`, `php-laravel`, `ruby-on-rails`, `elixir-phoenix`, `bash-scripting`, `powershell-automation`, `typescript-advanced`, `graphql-api`, `grpc-protobuf`, `websocket-realtime`, `server-sent-events`, `webhook-architecture`, `background-job-workers` |
+| **5. Databases & Storage** | 16 skills | `database-architect`, `postgresql-expert`, `mysql-optimization`, `sqlite-embedded`, `mongodb-modeling`, `clickhouse-analytics`, `redis-caching`, `elasticsearch-search`, `vector-database-rag`, `prisma-orm`, `drizzle-orm`, `sqlalchemy-patterns`, `typeorm-patterns`, `database-backup-recovery`, `replication-high-availability`, `database-sharding` |
+| **6. Cloud, DevOps & Infra** | 16 skills | `ci-cd-pipeline`, `docker-optimizer`, `kubernetes-manifest`, `helm-package-manager`, `terraform-iac`, `ansible-automation`, `argocd-gitops`, `aws-serverless`, `gcp-cloud-run`, `azure-cloud-architecture`, `cloudflare-workers-edge`, `nginx-reverse-proxy`, `dns-routing-cdn`, `ssl-tls-certificates`, `git-workflow`, `git-hooks-husky` |
+| **7. Security & Auth** | 12 skills | `security-hardener`, `auth-security`, `oauth2-oidc`, `jwt-management`, `penetration-tester`, `data-privacy-compliance`, `secret-management-vault`, `sql-injection-prevention`, `xss-content-security-policy`, `cors-csrf-defense`, `zero-trust-architecture`, `supply-chain-security` |
+| **8. QA & Testing** | 14 skills | `test-driven-development`, `e2e-playwright`, `cypress-testing`, `unit-testing-jest-vitest`, `integration-testing`, `mocking-strategy`, `mutation-testing`, `contract-testing-pact`, `snapshot-testing`, `flaky-test-eliminator`, `load-testing-k6`, `fuzz-testing`, `incident-commander`, `chaos-engineering` |
+| **9. Performance & Telemetry** | 10 skills | `performance-profiler`, `observability-telemetry`, `distributed-tracing-jaeger`, `prometheus-monitoring`, `promql-grafana-dashboards`, `grafana-dashboards`, `log-aggregation-elk`, `memory-leak-debugger`, `cpu-profiling-flamegraph`, `rate-limiting-throttling` |
+| **10. Architecture & Systems** | 10 skills | `system-architect`, `api-design`, `clean-hexagonal-architecture`, `domain-driven-design`, `cqrs-event-sourcing`, `event-driven-architecture`, `microservices-orchestrator`, `serverless-patterns`, `design-patterns-gang-of-four`, `cache-architect` |
+| **11. AI, LLM & Tooling** | 24 skills | `llm-prompt-engineer`, `rag-pipeline-architect`, `function-calling-agent-design`, `langchain-langgraph`, `evals-llm-benchmarking`, `vector-embeddings-search`, `model-quantization-serving`, `pytorch-deep-learning`, `data-pipeline-etl`, `pandas-numpy-data-wrangling`, `batch-processing`, `cdc-debezium`, `openapi-swagger-spec`, `sdk-generator`, `monorepo-turborepo`, `package-publisher-npm`, `linting-formatting-biome`, `conventional-changelog`, `readme-documentation-craft`, `documentation-architect`, `i18n-internationalization`, `code-refactoring` |
 
 ---
 
@@ -266,7 +253,9 @@ PASS: All platform rules and entrypoints exist
 PASS: All example artifacts verified
 
 --- 3. Validating Core Skills Structure & Frontmatter ---
-PASS: All 32 skills verified across all client directories (128 skill manifests)
+PASS: Repository contains at least 100 skills (Found: 150)
+PASS: comment-minimizer skill exists
+PASS: All 150 skills verified across all client directories (600 manifests)
 
 --- 4. Checking Clean Universal English ---
 PASS: All content verified for universal English language
@@ -281,6 +270,9 @@ PASS: Primary text contrast 18.33:1 exceeds WCAG AAA standard (7:1)
 PASS: Muted text contrast 7.48:1 meets WCAG AA standard (4.5:1)
 PASS: All spatial scale tokens strictly adhere to 8pt/4pt subgrid cadence
 PASS: Systematic debugging report conforms to 4-phase contract
+PASS: Noisy redundant comment detected by heuristic filter
+PASS: Clean self-documenting code passes filter
+PASS: Non-obvious architectural rationale comment passes filter
 
 All agent contract simulation tests passed cleanly!
 ```
