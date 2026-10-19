@@ -80,17 +80,38 @@ exampleFiles.forEach(file => {
 
 console.log('\n--- 3. Validating Core Skills Structure & Frontmatter ---');
 const skills = [
-  'subagent-council',
-  'subagent-helper',
-  'subagent-driven-development',
-  'systematic-debugging',
-  'verification-before-completion',
-  'ui-ux',
+  'accessibility-a11y',
   'api-design',
+  'auth-security',
+  'cache-architect',
+  'chaos-engineering',
+  'ci-cd-pipeline',
+  'code-refactoring',
+  'css-architect',
+  'data-privacy-compliance',
   'database-architect',
-  'security-hardener',
+  'docker-optimizer',
+  'documentation-architect',
+  'e2e-playwright',
   'git-workflow',
-  'performance-profiler'
+  'incident-commander',
+  'kubernetes-manifest',
+  'microservices-orchestrator',
+  'mocking-strategy',
+  'mutation-testing',
+  'observability-telemetry',
+  'penetration-tester',
+  'performance-profiler',
+  'security-hardener',
+  'state-management',
+  'subagent-council',
+  'subagent-driven-development',
+  'subagent-helper',
+  'system-architect',
+  'systematic-debugging',
+  'test-driven-development',
+  'ui-ux',
+  'verification-before-completion'
 ];
 
 const targetDirs = ['skills', '.agent/skills', '.claude/skills', '.omp/skills'];

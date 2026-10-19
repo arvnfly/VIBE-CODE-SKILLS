@@ -164,93 +164,44 @@ git clone https://github.com/arvnfly/VIBE-CODE-SKILLS.git
 
 ---
 
-## All-in-One Skills Suite (11 Core Skills)
+## All-in-One Skills Suite (32 Specialized Subagent Skills)
 
-All skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML frontmatter, organized across four full-stack pillars:
+All 32 skills adhere to the standard open Agent Skill format (`SKILL.md`) with YAML frontmatter, organized across eight specialized engineering pillars:
 
-### Pillar 1: Multi-Agent Process & Verification Gates
-
-#### 1. `subagent-council`
-*Location: `skills/subagent-council/SKILL.md`*
-- **Mode 1: Prompt Review (Pre-Execution Gate)**: Dissects complex user instructions into measurable acceptance criteria using **Clarifier**, **Skeptic**, and **Minimalist** lenses.
-- **Mode 2: Project Review (Post-Execution Audit)**: Audits resulting code diffs against **Correctness**, **Security**, and **Architecture** before work is closed.
-
-#### 2. `subagent-helper`
-*Location: `skills/subagent-helper/SKILL.md`*
-- **Exploration (Read-Only)**: Offloads symbol lookup, file scans, and AST inspection to keep the main agent's context clean.
-- **Isolated Test Generation**: Writes standalone reproduction test scripts without modifying production files.
-- **Mechanical Refactoring**: Executes repetitive batch formatting, schema renaming, or migrations.
-
-#### 3. `subagent-driven-development`
-*Location: `skills/subagent-driven-development/SKILL.md`*
-- Dispatches fresh, isolated subagents per task to eliminate context degradation.
-- Enforces council review gates between individual tasks.
-- Promotes continuous autonomous execution without trivial interruptions.
-
-#### 4. `verification-before-completion`
-*Location: `skills/verification-before-completion/SKILL.md`*
-- **Absolute Rule**: Evidence before assertions.
-- Requires literal terminal command logs with `exit code 0` (compiler, test suite, or linter).
-- Zero tolerance for conversational claims of success without verifiable proof.
-
----
-
-### Pillar 2: Diagnostics & Interface Design
-
-#### 5. `systematic-debugging`
-*Location: `skills/systematic-debugging/SKILL.md`*
-- 4-phase investigation protocol: **Reproduce** &rarr; **Trace** &rarr; **Hypothesize** &rarr; **Minimal Fix**.
-- Strictly prohibits speculative guessing, random patches, or suppressing exceptions.
-
-#### 6. `ui-ux`
-*Location: `skills/ui-ux/SKILL.md`*
-- Complete design intelligence engine for web, mobile, and desktop interfaces.
-- Design systems, 8pt spatial grid, semantic color tokens (60-30-10 distribution rule), fluid typography scales, visual archetype selection matrix (Clean SaaS, Bento Grid, Dark Mode, Neo-Brutalism), responsive breakpoints, micro-interactions, and WCAG 2.2 AA accessibility pre-flight audits.
-
----
-
-### Pillar 3: Backend, API & Data Engineering
-
-#### 7. `api-design`
-*Location: `skills/api-design/SKILL.md`*
-- Production standards for RESTful APIs, plural resource URIs, and HTTP method semantics.
-- Standardized RFC 7807 problem details error envelopes for all 4xx/5xx responses.
-- Cursor-based pagination protocols for high-velocity datasets and offset pagination for admin views.
-- Idempotency key headers (`Idempotency-Key`) for safe mutation replays.
-- Strict schema validation at trust boundaries (Zod, Pydantic, OpenAPI).
-
-#### 8. `database-architect`
-*Location: `skills/database-architect/SKILL.md`*
-- Zero-downtime database migration lifecycle: Additive &rarr; Backfill &rarr; Dual-Write &rarr; Contract.
-- Composite index optimization enforcing the Equality-Range-Sort column ordering rule.
-- Query optimization, `EXPLAIN ANALYZE` inspection, and complete N+1 query eradication.
-- ACID transaction hygiene: Short transactions, optimistic locking with version columns, and zero external I/O inside transaction blocks.
-
----
-
-### Pillar 4: Security, Delivery & Performance
-
-#### 9. `security-hardener`
-*Location: `skills/security-hardener/SKILL.md`*
-- Zero-leak secret protection: Enforces pre-commit patterns for API keys, PATs, and private keys.
-- Injection defense: Mandatory parameterised queries and zero shell string interpolation.
-- Timing attack mitigation: Enforces constant-time cryptographic comparison (`crypto.timingSafeEqual`).
-- SSRF loopback/private IP denylisting and CSRF `SameSite` cookie defenses.
-- Core security header checklist: CSP, HSTS, X-Content-Type-Options, X-Frame-Options.
-
-#### 10. `git-workflow`
-*Location: `skills/git-workflow/SKILL.md`*
-- Atomic commit discipline: Exactly one logical change per commit without breaking the build.
-- Conventional Commits standard (`feat`, `fix`, `refactor`, `perf`, `test`, `docs`, `chore`).
-- Linear history maintenance with rebase strategy and ephemeral commit squashing.
-- Pull request hygiene: Required summaries, motivation, verification evidence, and blast radius.
-
-#### 11. `performance-profiler`
-*Location: `skills/performance-profiler/SKILL.md`*
-- Core Web Vitals thresholds: LCP (`<= 2.5s`), INP (`<= 200ms`), CLS (`<= 0.1`).
-- 4-step memory leak diagnostic protocol and heap snapshot comparison.
-- Multi-tier caching architecture: L1 in-memory, L2 distributed Redis, and Stale-While-Revalidate headers.
-- Bundle optimization: Tree-shaking hygiene, dynamic code splitting, and modern compression.
+| Pillar | Subagent Skill | Location | Core Function |
+| :--- | :--- | :--- | :--- |
+| **1. Multi-Agent Process** | `subagent-council` | `skills/subagent-council/` | Pre-execution gate (Mode 1) & post-execution diff audit (Mode 2) |
+| | `subagent-helper` | `skills/subagent-helper/` | Isolated workers for read-only symbol exploration & test generation |
+| | `subagent-driven-development` | `skills/subagent-driven-development/` | Sequential fresh subagents with review gates between tasks |
+| | `verification-before-completion` | `skills/verification-before-completion/` | Terminal evidence barrier requiring literal `exit code 0` proof |
+| **2. Architecture & Design** | `system-architect` | `skills/system-architect/` | High-level system design, DDD bounded contexts, C4 models, and ADRs |
+| | `api-design` | `skills/api-design/` | RESTful standards, RFC 7807 error envelopes, cursor pagination, idempotency |
+| | `database-architect` | `skills/database-architect/` | Zero-downtime migrations, composite index ordering, and ACID transactions |
+| | `microservices-orchestrator` | `skills/microservices-orchestrator/` | Event-driven architecture, distributed sagas, outbox pattern, and DLQs |
+| **3. Frontend & UI** | `ui-ux` | `skills/ui-ux/` | Design intelligence engine (8pt grid, 60-30-10 palette, WCAG AA audits) |
+| | `accessibility-a11y` | `skills/accessibility-a11y/` | Web accessibility, ARIA role mapping, focus traps, and WCAG 2.2 AA/AAA |
+| | `css-architect` | `skills/css-architect/` | Maintainable CSS, container queries, fluid tokens, and layout shift (CLS) prevention |
+| | `state-management` | `skills/state-management/` | Client-side state, normalized stores, selector memoization, and race prevention |
+| **4. Diagnostics & Reliability** | `systematic-debugging` | `skills/systematic-debugging/` | 4-phase root cause investigation (Reproduce > Trace > Hypothesize > Fix) |
+| | `performance-profiler` | `skills/performance-profiler/` | Core Web Vitals (LCP, INP, CLS), heap memory diagnostics, multi-tier caching |
+| | `incident-commander` | `skills/incident-commander/` | Production incident triage, severity assessment, and blameless post-mortems |
+| | `chaos-engineering` | `skills/chaos-engineering/` | Resilience engineering, circuit breakers, retry with backoff & jitter |
+| **5. Security & Compliance** | `security-hardener` | `skills/security-hardener/` | OWASP Top 10 defense, zero secret leakage, timing-safe crypto, SSRF/CSRF |
+| | `auth-security` | `skills/auth-security/` | JWT lifecycle, OAuth 2.1 / OIDC flows, PKCE, and RBAC/ABAC authorization |
+| | `penetration-tester` | `skills/penetration-tester/` | Security testing, SAST/DAST audits, CVE scans, and offensive exploit prevention |
+| | `data-privacy-compliance` | `skills/data-privacy-compliance/` | GDPR/CCPA PII handling, data sanitization, and immutable audit logs |
+| **6. QA & Testing** | `test-driven-development` | `skills/test-driven-development/` | TDD cycle (Red-Green-Refactor), test isolation, and behavioral assertion |
+| | `e2e-playwright` | `skills/e2e-playwright/` | End-to-end browser automation with Playwright and accessible locators |
+| | `mocking-strategy` | `skills/mocking-strategy/` | In-memory fakes, Mock Service Worker (MSW), and preventing mock drift |
+| | `mutation-testing` | `skills/mutation-testing/` | Mutation testing protocols, mutant survival analysis, and killing false-positives |
+| **7. DevOps & CI/CD** | `git-workflow` | `skills/git-workflow/` | Atomic commits, Conventional Commits formatting, linear rebase, PR hygiene |
+| | `docker-optimizer` | `skills/docker-optimizer/` | Multi-stage Docker builds, minimal non-root packaging, and layer caching |
+| | `ci-cd-pipeline` | `skills/ci-cd-pipeline/` | CI/CD pipeline architecture, matrix builds, automated gates, and rollbacks |
+| | `kubernetes-manifest` | `skills/kubernetes-manifest/` | Production K8s manifests, resource limits/requests, PDBs, and health probes |
+| **8. Data & Observability** | `observability-telemetry` | `skills/observability-telemetry/` | Structured JSON logging, OpenTelemetry distributed tracing, Prometheus metrics |
+| | `cache-architect` | `skills/cache-architect/` | Redis architectural patterns, cache-aside, and cache stampede prevention (XFetch) |
+| | `documentation-architect` | `skills/documentation-architect/` | Technical documentation architecture, the Diataxis framework, runnable snippets |
+| | `code-refactoring` | `skills/code-refactoring/` | Martin Fowler refactoring catalog, cyclomatic complexity reduction, boy scout rule |
 
 ---
 
@@ -315,7 +266,7 @@ PASS: All platform rules and entrypoints exist
 PASS: All example artifacts verified
 
 --- 3. Validating Core Skills Structure & Frontmatter ---
-PASS: All 6 skills verified across all client directories
+PASS: All 32 skills verified across all client directories (128 skill manifests)
 
 --- 4. Checking Clean Universal English ---
 PASS: All content verified for universal English language
