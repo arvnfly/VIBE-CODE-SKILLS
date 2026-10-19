@@ -31,3 +31,16 @@ jobs:
           test -f /tmp/test-dest/.cursor/rules/council.mdc
           rm -rf /tmp/test-dest
           echo "Installer test passed."
+
+      - name: Test CLI commands and doctor
+        run: |
+          node bin/vibe-code-skills.js --help
+          node bin/vibe-code-skills.js list
+          node bin/vibe-code-skills.js doctor .
+          mkdir -p /tmp/test-cli-dest
+          node bin/vibe-code-skills.js install /tmp/test-cli-dest --client=cursor --dry-run
+          node bin/vibe-code-skills.js install /tmp/test-cli-dest --client=cursor
+          node bin/vibe-code-skills.js doctor /tmp/test-cli-dest
+          node bin/vibe-code-skills.js uninstall /tmp/test-cli-dest
+          rm -rf /tmp/test-cli-dest
+          echo "CLI tests passed."

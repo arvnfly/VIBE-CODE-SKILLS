@@ -6,6 +6,10 @@
   "bin": {
     "vibe-code-skills": "./bin/vibe-code-skills.js"
   },
+  "preferGlobal": true,
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "files": [
     "bin",
     "skills",
@@ -23,7 +27,9 @@
     ".agent",
     ".claude",
     ".omp",
-    ".cursor"
+    ".cursor",
+    "test",
+    "examples"
   ],
   "scripts": {
     "test": "node test/validate.js && node test/simulate-agent.js"

@@ -93,11 +93,50 @@ Autonomous coding agents (Claude Code, Cursor, Antigravity, OpenAI Codex, Windsu
 
 Install VIBE-CODE Skills into any existing project in 3 seconds:
 
-### Via NPX (Zero Setup)
+### Via NPX (Direct from GitHub or NPM)
+
+Run instantly without cloning or local installation:
+
 ```bash
+# Run directly from GitHub repository (no npm registry wait)
+npx github:arvnfly/VIBE-CODE-SKILLS
+
+# Or via npm package (once published):
 npx vibe-code-skills
-# Or target a specific directory:
-npx vibe-code-skills /path/to/target/project
+```
+
+### CLI Commands & Advanced Flags
+
+The native zero-dependency CLI includes workspace auto-detection, client filtering, diagnostic health checks, and dry-run safety:
+
+```bash
+# Universal install into current project (auto-detects active agents)
+npx github:arvnfly/VIBE-CODE-SKILLS install
+
+# Install into a specific directory
+npx github:arvnfly/VIBE-CODE-SKILLS install /path/to/project
+
+# Filter installation to a specific AI agent:
+# Options: antigravity, claude, cursor, codex, windsurf, omp, gemini, aider, copilot
+npx github:arvnfly/VIBE-CODE-SKILLS install ./my-project --client=cursor
+
+# Preview file operations without modifying disk
+npx github:arvnfly/VIBE-CODE-SKILLS install ./my-project --dry-run
+
+# Create a timestamped backup before overwriting files
+npx github:arvnfly/VIBE-CODE-SKILLS install ./my-project --backup
+
+# Audit project configuration and verify skill health
+npx github:arvnfly/VIBE-CODE-SKILLS doctor ./my-project
+
+# Run multi-agent contract verification test suite
+npx github:arvnfly/VIBE-CODE-SKILLS verify
+
+# List all core skills and supported AI agent platforms
+npx github:arvnfly/VIBE-CODE-SKILLS list
+
+# Safely remove vibe-code skills without touching user code
+npx github:arvnfly/VIBE-CODE-SKILLS uninstall ./my-project
 ```
 
 ### One-Line Shell Installers

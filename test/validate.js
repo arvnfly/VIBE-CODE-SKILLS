@@ -49,6 +49,8 @@ const rootFiles = [
   '.aider/CONVENTIONS.md',
   '.github/copilot-instructions.md',
   '.github/assets/banner.svg',
+  '.github/workflows/ci.yml',
+  '.github/workflows/publish.yml',
   'bin/vibe-code-skills.js',
   'install.sh',
   'install.ps1',
